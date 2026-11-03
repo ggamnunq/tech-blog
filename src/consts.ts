@@ -9,6 +9,16 @@ export const SITE = {
 	lang: 'ko',
 } as const;
 
+// 방문 통계·검색 등록 — 값이 없으면 해당 태그를 넣지 않음
+export const ANALYTICS = {
+	// GoatCounter: 배포 빌드에서만, 403·404 제외. 스크립트는 SRI로 고정 (버전 올리면 해시도 같이 갱신)
+	goatcounterEndpoint: 'https://ggamnunq.goatcounter.com/count',
+	goatcounterScript: 'https://gc.zgo.at/count.v5.js',
+	goatcounterIntegrity: 'sha384-atnOLvQb9t+jTSipvd75X2yginT4PjVbqDdlJAmxMm+wYElFmeR6EmLP5bYeoRVQ',
+	// Google Search Console 소유 확인 (HTML 태그 방식)
+	googleSiteVerification: 'EZGjGG3uRN9lCRjEokPqdqDqowCbahmpbqWJrbtS4LY',
+} as const;
+
 // 카테고리는 여기서 추가/삭제 — 글 frontmatter의 categories에는 slug 값을 씀 (첫 번째가 대표)
 export const CATEGORIES = [
 	{ slug: 'backend', label: 'Backend' },
