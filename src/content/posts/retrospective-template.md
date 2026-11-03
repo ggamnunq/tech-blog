@@ -2,7 +2,7 @@
 title: 회고 글 템플릿
 description: 프로젝트나 활동을 마친 뒤 한 일, 잘한 점, 아쉬운 점, 다음에 할 일을 정리할 때 쓰는 템플릿입니다.
 pubDate: 2026-10-28
-category: retrospective
+categories: [retrospective, project]
 tags: [템플릿, 회고]
 draft: true
 ---

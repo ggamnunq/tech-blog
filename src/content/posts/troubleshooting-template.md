@@ -2,7 +2,7 @@
 title: 트러블슈팅 글 템플릿
 description: 문제 상황 → 원인 분석 → 해결 → 결과 순서로 트러블슈팅 글을 쓸 때 복사해서 쓰는 템플릿입니다.
 pubDate: 2026-11-01
-category: troubleshooting
+categories: [troubleshooting, backend]
 tags: [템플릿, 트러블슈팅]
 thumbnail: ../../assets/thumbnails/troubleshooting.svg
 draft: true

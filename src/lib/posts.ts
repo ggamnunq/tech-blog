@@ -2,9 +2,12 @@ import { type CollectionEntry, getCollection } from 'astro:content';
 
 export type Post = CollectionEntry<'posts'>;
 
-/** 최신순 정렬된 글 목록. 배포 빌드에서는 draft 글을 제외함 */
+/** 디자인 확인용 목데이터 폴더 (src/content/posts/mock/) — 로컬에서만 보임 */
+export const isMock = (post: Post) => post.id.startsWith('mock/');
+
+/** 최신순 정렬된 글 목록. 배포 빌드에서는 draft 글과 목데이터를 제외함 */
 export async function getPosts(): Promise<Post[]> {
-	const posts = await getCollection('posts', ({ data }) => import.meta.env.DEV || !data.draft);
+	const posts = await getCollection('posts', (post) => import.meta.env.DEV || (!post.data.draft && !isMock(post)));
 	return posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 }
 

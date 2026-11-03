@@ -91,7 +91,7 @@ const items = Astro.props.headings.filter((h) => h.depth === 2 || h.depth === 3)
 			}
 			// 페이지 끝에 닿으면 마지막 항목 활성화
 			if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
-				current = targets.at(-1)?.id;
+				current = targets.at(-1)?.id ?? current;
 			}
 			for (const link of links) link.classList.toggle('is-active', link.dataset.tocLink === current);
 		};

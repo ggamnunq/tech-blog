@@ -23,14 +23,25 @@ interface Props {
 
 const { post, newer, older } = Astro.props;
 const { Content, headings } = await render(post);
-const { title, description, pubDate, updatedDate, category, tags, thumbnail, draft } = post.data;
+const { title, description, pubDate, updatedDate, categories, tags, thumbnail, draft } = post.data;
 ---
 
 <BaseLayout title={title} description={description} image={thumbnail?.src} type="article">
 	<div class="container post-layout">
 		<article class="post">
 			<header class="post-header">
-				<a class="post-category" href={withBase(`category/${category}/`)}>{categoryLabel(category)}</a>
+				<div class="post-categories">
+					{
+						categories.map((c, i) => (
+							<>
+								{i > 0 && <span class="post-category-sep" aria-hidden="true">·</span>}
+								<a class="post-category" href={withBase(`category/${c}/`)}>
+									{categoryLabel(c)}
+								</a>
+							</>
+						))
+					}
+				</div>
 				<h1 class="post-title">
 					{title}
 					{draft && <span class="draft-badge">초안 · 배포 안 됨</span>}
@@ -136,12 +147,22 @@ const { title, description, pubDate, updatedDate, category, tags, thumbnail, dra
 		margin-bottom: 48px;
 	}
 
-	.post-category {
-		display: inline-block;
+	.post-categories {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 8px;
 		margin-bottom: 14px;
 		font-size: 15px;
 		font-weight: 600;
+	}
+
+	.post-category {
 		color: var(--accent);
+	}
+
+	.post-category-sep {
+		color: var(--text-muted);
 	}
 
 	.post-category:hover {

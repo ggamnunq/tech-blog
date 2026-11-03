@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# 디자인 확인용 목데이터 (로컬 전용)
+src/content/posts/mock/

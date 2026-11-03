@@ -61,7 +61,7 @@ docker compose up -d
 |---|---|---|
 | 제목 | `title` | 필수 |
 | 요약 | `description` | 목록·검색 결과에 노출 |
-| 카테고리 | `category` | `backend`, `infra`, `troubleshooting`, `retrospective`, `etc` |
+| 카테고리 | `categories` | `backend`, `infra`, `troubleshooting`, `project`, `activity`, `retrospective`, `etc` 중 여러 개 (첫 번째가 대표) |
 | 썸네일 | `thumbnail` | 선택 |
 
 ---

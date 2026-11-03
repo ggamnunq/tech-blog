@@ -8,13 +8,13 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, pubDate, category, thumbnail, draft } = post.data;
+const { title, description, pubDate, categories, thumbnail, draft } = post.data;
 ---
 
 <article class="post-card">
 	<a href={withBase(`posts/${post.id}/`)} class="post-card-link">
 		<div class="post-card-body">
-			<span class="post-card-category">{categoryLabel(category)}</span>
+			<span class="post-card-category">{categoryLabel(categories[0])}</span>
 			<h2 class="post-card-title">
 				{title}
 				{draft && <span class="draft-badge">초안</span>}

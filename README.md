@@ -1,6 +1,6 @@
 # ggamnunq.log
 
-백엔드 개발을 공부하며 배운 것과 해결한 문제를 기록하는 기술 블로그.
+백엔드 개발을 공부하며 배운 것, 해결한 문제, 프로젝트와 활동 이야기를 기록하는 블로그.
 
 - 주소: https://ggamnunq.github.io/tech-blog/
 - 스택: [Astro](https://astro.build) · Markdown · GitHub Pages (GitHub Actions 자동 배포)
@@ -23,7 +23,8 @@ npm run preview    # 빌드 결과 미리보기
 title: 글 제목
 description: 목록과 검색 결과에 보이는 한두 줄 요약
 pubDate: 2026-11-03
-category: backend        # backend | infra | troubleshooting | retrospective | etc
+categories: [troubleshooting, backend]   # 여러 개 가능, 첫 번째가 대표 (하나면 category: backend 도 됨)
+                         # backend | infra | troubleshooting | project | activity | retrospective | etc
 tags: [Spring, JPA]
 thumbnail: ../../assets/thumbnails/welcome.svg   # 선택
 draft: false             # true면 로컬에서만 보이고 배포 안 됨

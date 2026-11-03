@@ -12,7 +12,7 @@ export async function GET(context) {
 			title: post.data.title,
 			description: post.data.description,
 			pubDate: post.data.pubDate,
-			categories: [post.data.category, ...post.data.tags],
+			categories: [...post.data.categories, ...post.data.tags],
 			link: withBase(`posts/${post.id}/`),
 		})),
 		customData: '<language>ko</language>',

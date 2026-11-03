@@ -9,7 +9,7 @@ interface Props {
 
 const { posts, current } = Astro.props;
 const counts = new Map<string, number>();
-for (const post of posts) counts.set(post.data.category, (counts.get(post.data.category) ?? 0) + 1);
+for (const post of posts) for (const c of post.data.categories) counts.set(c, (counts.get(c) ?? 0) + 1);
 
 const tabs = [
 	{ slug: 'all', label: '전체', href: withBase('/'), count: posts.length },
