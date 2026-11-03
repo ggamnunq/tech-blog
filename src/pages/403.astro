@@ -1,0 +1,8 @@
+---
+import ErrorPage from '../components/ErrorPage.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="접근할 수 없는 페이지" noindex>
+	<ErrorPage code="403" title="접근할 수 없는 페이지예요" description="공개되지 않은 페이지라 볼 수 없어요." showFrom />
+</BaseLayout>

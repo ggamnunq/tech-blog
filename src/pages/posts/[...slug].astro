@@ -2,16 +2,22 @@
 import { Image } from 'astro:assets';
 import { render } from 'astro:content';
 import '../../styles/prose.css';
+import SeriesBox from '../../components/SeriesBox.astro';
 import Toc from '../../components/Toc.astro';
 import { categoryLabel, SITE } from '../../consts';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { formatDate, getPosts, isoDate, type Post, readingMinutes, tagSlug, withBase } from '../../lib/posts';
+import { formatDate, getPosts, isoDate, type Post, readingMinutes, seriesPosts, tagSlug, withBase } from '../../lib/posts';
 
 export async function getStaticPaths() {
 	const posts = await getPosts();
 	return posts.map((post, i) => ({
 		params: { slug: post.id },
-		props: { post, newer: posts[i - 1], older: posts[i + 1] },
+		props: {
+			post,
+			newer: posts[i - 1],
+			older: posts[i + 1],
+			parts: post.data.series ? seriesPosts(posts, post.data.series) : [],
+		},
 	}));
 }
 
@@ -19,9 +25,12 @@ interface Props {
 	post: Post;
 	newer?: Post;
 	older?: Post;
+	parts: Post[];
 }
 
-const { post, newer, older } = Astro.props;
+const { post, newer, older, parts } = Astro.props;
+const partIndex = parts.findIndex((p) => p.id === post.id);
+const nextPart = partIndex >= 0 ? parts[partIndex + 1] : undefined;
 const { Content, headings } = await render(post);
 const { title, description, pubDate, updatedDate, categories, tags, thumbnail, draft } = post.data;
 ---
@@ -47,7 +56,7 @@ const { title, description, pubDate, updatedDate, categories, tags, thumbnail, d
 					{draft && <span class="draft-badge">초안 · 배포 안 됨</span>}
 				</h1>
 				<div class="post-meta">
-					<img class="avatar" src={SITE.avatar} alt="" width="36" height="36" loading="lazy" />
+					<img class="avatar" src={withBase(SITE.avatar)} alt="" width="36" height="36" loading="lazy" />
 					<div>
 						<p class="meta-author">{SITE.author}</p>
 						<p class="meta-sub">
@@ -75,9 +84,20 @@ const { title, description, pubDate, updatedDate, categories, tags, thumbnail, d
 				)
 			}
 
+			{post.data.series && parts.length > 0 && <SeriesBox series={post.data.series} parts={parts} currentId={post.id} />}
+
 			<div class="prose">
 				<Content />
 			</div>
+
+			{
+				nextPart && (
+					<a class="series-next" href={withBase(`posts/${nextPart.id}/`)}>
+						<span class="series-next-label">시리즈 다음 글 · {nextPart.data.seriesOrder}편</span>
+						<span class="series-next-title">{nextPart.data.title}</span>
+					</a>
+				)
+			}
 
 			{
 				tags.length > 0 && (
@@ -94,7 +114,7 @@ const { title, description, pubDate, updatedDate, categories, tags, thumbnail, d
 			}
 
 			<section class="author-card" aria-label="작성자">
-				<img class="author-avatar" src={SITE.avatar} alt="" width="56" height="56" loading="lazy" />
+				<img class="author-avatar" src={withBase(SITE.avatar)} alt="" width="56" height="56" loading="lazy" />
 				<div>
 					<p class="author-name">{SITE.author}</p>
 					<p class="author-desc">{SITE.description}</p>
@@ -213,6 +233,33 @@ const { title, description, pubDate, updatedDate, categories, tags, thumbnail, d
 
 	.post-hero :global(img) {
 		width: 100%;
+	}
+
+	.series-next {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		margin-top: 56px;
+		padding: 22px 24px;
+		border-radius: var(--radius-lg);
+		background: var(--accent-soft);
+		transition: background-color 0.15s ease;
+	}
+
+	.series-next:hover {
+		background: #dfe9ff;
+	}
+
+	.series-next-label {
+		font-size: 13px;
+		font-weight: 700;
+		color: var(--accent);
+	}
+
+	.series-next-title {
+		font-size: 18px;
+		font-weight: 700;
+		color: var(--text);
 	}
 
 	.post-tags {

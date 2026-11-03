@@ -156,8 +156,8 @@ button {
 	border-radius: 6px;
 	font-size: 12px;
 	font-weight: 600;
-	color: #c2410c;
-	background: #fff1e6;
+	color: #c92a2a;
+	background: #fdeeee;
 	vertical-align: middle;
 }
 
@@ -213,4 +213,9 @@ button {
 	background: var(--text);
 	color: #fff;
 	font-weight: 600;
+}
+
+/* 404 페이지가 숨긴 글 여부를 확인하는 동안 깜빡임 방지 */
+html.is-checking main {
+	visibility: hidden;
 }

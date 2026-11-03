@@ -33,8 +33,7 @@ draft: false             # true면 로컬에서만 보이고 배포 안 됨
 본문...
 ```
 
-- 템플릿: `troubleshooting-template.md`, `concept-template.md`, `retrospective-template.md` (모두 `draft: true`)
-- 마크다운 요소 미리보기: `writing-guide.md`
+- 글쓰기 템플릿과 마크다운 미리보기 글은 로컬 전용(`src/content/posts/mock/`, gitignore) — `npm run dev:mock`으로 확인
 - 카테고리 추가/이름 변경: `src/consts.ts`의 `CATEGORIES`
 - 블로그 이름·소개·링크: `src/consts.ts`의 `SITE`
 - 색상·폰트: `src/styles/global.css`의 `:root` 변수

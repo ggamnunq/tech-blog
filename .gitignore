@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # 디자인 확인용 목데이터 (로컬 전용)
 src/content/posts/mock/
+
+# AI 작업 지침 — 팀원 정보 등이 있어 로컬 전용
+CLAUDE.md

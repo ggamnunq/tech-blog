@@ -1,7 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
-import { CATEGORY_SLUGS } from './consts';
+import { CATEGORY_SLUGS, SERIES_SLUGS } from './consts';
 
 const posts = defineCollection({
 	loader: glob({ base: './src/content/posts', pattern: '**/*.md' }),
@@ -17,12 +17,18 @@ const posts = defineCollection({
 				// 하나만 쓸 땐 category: backend 도 가능
 				category: z.enum(CATEGORY_SLUGS).optional(),
 				tags: z.array(z.string()).default([]),
+				// 시리즈 글이면 series(slug)와 seriesOrder(1부터)를 함께 적음
+				series: z.enum(SERIES_SLUGS).optional(),
+				seriesOrder: z.number().int().positive().optional(),
 				thumbnail: image().optional(),
 				// true면 로컬(npm run dev)에서만 보이고 배포에는 빠짐
 				draft: z.boolean().default(false),
 			})
 			.refine((d) => d.categories || d.category, {
 				message: 'categories 또는 category 중 하나는 꼭 적어야 합니다',
+			})
+			.refine((d) => !d.series || d.seriesOrder, {
+				message: 'series를 적었다면 seriesOrder도 적어야 합니다',
 			})
 			.transform(({ category, categories, ...rest }) => ({
 				...rest,

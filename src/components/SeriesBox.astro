@@ -1,0 +1,123 @@
+---
+import { findSeries } from '../consts';
+import { type Post, withBase } from '../lib/posts';
+
+interface Props {
+	series: string;
+	parts: Post[];
+	currentId: string;
+}
+
+const { series, parts, currentId } = Astro.props;
+const info = findSeries(series);
+const index = parts.findIndex((p) => p.id === currentId);
+---
+
+{
+	info && (
+		<section class="series" aria-label="시리즈">
+			<div class="series-head">
+				<span class="series-label">시리즈</span>
+				<p class="series-title">{info.title}</p>
+				<span class="series-count">
+					{index + 1} / {parts.length}
+				</span>
+			</div>
+			<ol class="series-list">
+				{parts.map((p) => (
+					<li class:list={{ 'is-current': p.id === currentId }}>
+						{p.id === currentId ? (
+							<span aria-current="page">
+								<span class="series-no">{p.data.seriesOrder}</span>
+								{p.data.title}
+							</span>
+						) : (
+							<a href={withBase(`posts/${p.id}/`)}>
+								<span class="series-no">{p.data.seriesOrder}</span>
+								{p.data.title}
+							</a>
+						)}
+					</li>
+				))}
+			</ol>
+		</section>
+	)
+}
+
+<style>
+	.series {
+		margin-bottom: 48px;
+		padding: 22px 24px;
+		border-radius: var(--radius-lg);
+		background: var(--bg-softer);
+		border: 1px solid var(--border);
+	}
+
+	.series-head {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin-bottom: 14px;
+	}
+
+	.series-label {
+		flex: none;
+		padding: 3px 9px;
+		border-radius: 6px;
+		font-size: 12px;
+		font-weight: 700;
+		color: var(--accent);
+		background: var(--accent-soft);
+	}
+
+	.series-title {
+		flex: 1;
+		min-width: 0;
+		margin: 0;
+		font-size: 17px;
+		font-weight: 700;
+		color: var(--text);
+	}
+
+	.series-count {
+		flex: none;
+		font-size: 14px;
+		font-weight: 600;
+		color: var(--text-muted);
+	}
+
+	.series-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.series-list li > * {
+		display: flex;
+		gap: 12px;
+		padding: 8px 0;
+		font-size: 15px;
+		line-height: 1.5;
+		color: var(--text-sub);
+	}
+
+	.series-list a:hover {
+		color: var(--text);
+	}
+
+	.series-list li.is-current > * {
+		color: var(--accent);
+		font-weight: 600;
+	}
+
+	.series-no {
+		flex: none;
+		width: 20px;
+		font-weight: 700;
+		color: var(--text-muted);
+	}
+
+	.series-list li.is-current .series-no {
+		color: var(--accent);
+	}
+</style>

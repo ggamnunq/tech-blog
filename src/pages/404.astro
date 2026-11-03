@@ -1,47 +1,127 @@
 ---
+import { createHash } from 'node:crypto';
+import ErrorPage from '../components/ErrorPage.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { withBase } from '../lib/posts';
+import { formatDate, getHiddenPostIds, getPosts, withBase } from '../lib/posts';
+
+// GitHub Pages는 없는 주소에 이 페이지(404.html)를 보여 줌.
+// 그중 "숨겨 둔 콘텐츠" 주소면 브라우저에서 403 페이지로 보냄.
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const forbiddenUrl = withBase('403/');
+// 목데이터, 레포 내부 파일 경로
+const forbiddenPrefixes = [
+	'/posts/mock',
+	'/src/',
+	'/diagrams/',
+	'/scripts/',
+	'/node_modules/',
+	'/.git',
+	'/.env',
+	'/.astro/',
+	'/CLAUDE.md',
+	'/package.json',
+];
+// 배포에서 빠진 draft 글 — 주소가 그대로 노출되지 않게 SHA-256 해시만 넣음
+const hiddenHashes = (await getHiddenPostIds()).map((id) => createHash('sha256').update(id).digest('hex'));
+
+const recent = (await getPosts()).slice(0, 3);
 ---
 
-<BaseLayout title="페이지를 찾을 수 없어요">
-	<div class="container not-found">
-		<p class="code">404</p>
-		<h1>페이지를 찾을 수 없어요</h1>
-		<p>주소가 바뀌었거나 삭제된 글일 수 있어요.</p>
-		<a href={withBase('/')}>홈으로 가기</a>
-	</div>
+<BaseLayout title="페이지를 찾을 수 없어요" noindex>
+	<script slot="head" is:inline define:vars={{ base, forbiddenUrl, forbiddenPrefixes, hiddenHashes }}>
+		(function () {
+			var root = document.documentElement;
+			var path = decodeURIComponent(location.pathname);
+			if (path.indexOf(base) === 0) path = path.slice(base.length);
+			path = '/' + path.replace(/^\/+/, '');
+			function forbid() {
+				location.replace(forbiddenUrl + '?from=' + encodeURIComponent(location.pathname));
+			}
+			for (var i = 0; i < forbiddenPrefixes.length; i++) {
+				if (path.indexOf(forbiddenPrefixes[i]) === 0) return forbid();
+			}
+			var m = path.match(/^\/posts\/(.+?)\/?$/);
+			if (!m || hiddenHashes.length === 0 || !window.crypto || !crypto.subtle) return;
+			root.classList.add('is-checking');
+			crypto.subtle
+				.digest('SHA-256', new TextEncoder().encode(m[1]))
+				.then(function (buf) {
+					var hex = Array.from(new Uint8Array(buf))
+						.map(function (b) {
+							return b.toString(16).padStart(2, '0');
+						})
+						.join('');
+					if (hiddenHashes.indexOf(hex) !== -1) return forbid();
+					root.classList.remove('is-checking');
+				})
+				.catch(function () {
+					root.classList.remove('is-checking');
+				});
+		})();
+	</script>
+
+	<ErrorPage code="404" title="페이지를 찾을 수 없어요" description="주소가 바뀌었거나 삭제된 글일 수 있어요.">
+		{
+			recent.length > 0 && (
+				<div class="recent">
+					<p class="recent-title">최근 글</p>
+					<ul>
+						{recent.map((post) => (
+							<li>
+								<a href={withBase(`posts/${post.id}/`)}>
+									<span class="recent-name">{post.data.title}</span>
+									<span class="recent-date">{formatDate(post.data.pubDate)}</span>
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+			)
+		}
+	</ErrorPage>
 </BaseLayout>
 
 <style>
-	.not-found {
-		padding-top: 120px;
-		text-align: center;
+	.recent {
+		margin-top: 64px;
+		padding-top: 32px;
+		border-top: 1px solid var(--border);
+		text-align: left;
 	}
 
-	.code {
+	.recent-title {
+		margin: 0 0 8px;
+		font-size: 14px;
+		font-weight: 700;
+		color: var(--text-muted);
+	}
+
+	ul {
+		list-style: none;
 		margin: 0;
-		font-size: 64px;
-		font-weight: 800;
-		color: var(--accent);
-		letter-spacing: -0.04em;
-	}
-
-	h1 {
-		margin: 8px 0 0;
-		font-size: 26px;
-	}
-
-	p {
-		color: var(--text-sub);
+		padding: 0;
 	}
 
 	a {
-		display: inline-block;
-		margin-top: 16px;
-		padding: 12px 20px;
-		border-radius: var(--radius-sm);
+		display: flex;
+		justify-content: space-between;
+		gap: 16px;
+		padding: 12px 0;
+		font-size: 16px;
+	}
+
+	.recent-name {
 		font-weight: 600;
-		color: #fff;
-		background: var(--accent);
+		color: var(--text);
+	}
+
+	a:hover .recent-name {
+		color: var(--accent);
+	}
+
+	.recent-date {
+		flex: none;
+		font-size: 14px;
+		color: var(--text-muted);
 	}
 </style>

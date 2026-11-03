@@ -1,12 +1,13 @@
 ---
 import { SITE } from '../consts';
+import { withBase } from '../lib/posts';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="소개" description={`${SITE.author} 소개`}>
 	<div class="container about">
 		<section class="profile">
-			<img class="profile-avatar" src={SITE.avatar} alt={`${SITE.author} 프로필 사진`} width="96" height="96" />
+			<img class="profile-avatar" src={withBase(SITE.avatar)} alt={`${SITE.author} 프로필 사진`} width="96" height="96" />
 			<h1>{SITE.author}</h1>
 			<!-- TODO: 한 줄 소개를 직접 다듬어 주세요 -->
 			<p class="profile-desc">백엔드 개발자를 꿈꾸며 공부하고 있습니다.</p>

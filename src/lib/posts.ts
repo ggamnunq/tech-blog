@@ -5,10 +5,25 @@ export type Post = CollectionEntry<'posts'>;
 /** 디자인 확인용 목데이터 폴더 (src/content/posts/mock/) — 로컬에서만 보임 */
 export const isMock = (post: Post) => post.id.startsWith('mock/');
 
-/** 최신순 정렬된 글 목록. 배포 빌드에서는 draft 글과 목데이터를 제외함 */
+/** 목데이터는 로컬에서도 기본으로 숨김. `npm run dev:mock`(SHOW_MOCK=true)일 때만 보임 */
+const showMock = import.meta.env.DEV && process.env.SHOW_MOCK === 'true';
+
+/** 공개 대상인지: 배포 빌드에서는 draft·목데이터 제외, 로컬에서는 draft는 보이고 목데이터는 옵션 */
+export function isVisible(post: Post): boolean {
+	if (isMock(post)) return showMock;
+	return import.meta.env.DEV || !post.data.draft;
+}
+
+/** 최신순 정렬된 글 목록 */
 export async function getPosts(): Promise<Post[]> {
-	const posts = await getCollection('posts', (post) => import.meta.env.DEV || (!post.data.draft && !isMock(post)));
+	const posts = await getCollection('posts', isVisible);
 	return posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+}
+
+/** 숨겨진 글(배포에서 빠진 draft) — 403 판별용. 주소는 해시로만 내보냄 */
+export async function getHiddenPostIds(): Promise<string[]> {
+	const posts = await getCollection('posts', (post) => !isMock(post) && !isVisible(post));
+	return posts.map((p) => p.id);
 }
 
 /** 한국어 기준 분당 약 500자로 읽는 시간 계산 (코드 블록은 절반 가중치) */
@@ -39,6 +54,13 @@ export function withBase(path = '/'): string {
 	const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	const clean = path.replace(/^\//, '');
 	return `${base}/${clean}`;
+}
+
+/** 같은 시리즈 글을 seriesOrder 순으로 */
+export function seriesPosts(posts: Post[], series: string): Post[] {
+	return posts
+		.filter((p) => p.data.series === series)
+		.sort((a, b) => (a.data.seriesOrder ?? 0) - (b.data.seriesOrder ?? 0));
 }
 
 export function tagSlug(tag: string): string {

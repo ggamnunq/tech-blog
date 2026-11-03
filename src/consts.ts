@@ -5,7 +5,7 @@ export const SITE = {
 	description: '백엔드 개발을 공부하며 배운 것, 해결한 문제, 프로젝트와 활동 이야기를 기록합니다',
 	author: 'junyong',
 	github: 'https://github.com/ggamnunq',
-	avatar: 'https://github.com/ggamnunq.png',
+	avatar: 'avatar.jpg', // public/avatar.jpg — 외부(github.com) 요청 없이 직접 제공
 	lang: 'ko',
 } as const;
 
@@ -19,6 +19,23 @@ export const CATEGORIES = [
 	{ slug: 'retrospective', label: '회고' },
 	{ slug: 'etc', label: '기타' },
 ] as const;
+
+// 시리즈 — 글 frontmatter에 series: <slug>, seriesOrder: <번호>
+export const SERIES = [
+	{
+		slug: 'whylog-voice',
+		title: 'WhyLog 실시간 음성 회의 구현기',
+		description: '다자간 음성 회의를 만들며 설계하고 부딪힌 문제를 정리한 시리즈',
+	},
+] as const;
+
+export type SeriesSlug = (typeof SERIES)[number]['slug'];
+
+export const SERIES_SLUGS = SERIES.map((s) => s.slug) as [SeriesSlug, ...SeriesSlug[]];
+
+export function findSeries(slug: string) {
+	return SERIES.find((s) => s.slug === slug);
+}
 
 export type CategorySlug = (typeof CATEGORIES)[number]['slug'];
 
