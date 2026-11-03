@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" font-family="'Pretendard Variable', Pretendard, sans-serif">
+  <defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker></defs>
+  <rect width="960" height="420" fill="#f2f4f6"/>
+  <g text-anchor="middle">
+    <rect x="24" y="40" width="190" height="104" rx="16" fill="#fff"/>
+    <text x="119" y="82" font-size="19" font-weight="700" fill="#191f28">기본 스레드 2개</text>
+    <text x="119" y="112" font-size="18" font-weight="500" fill="#4e5968">중에 빈 곳이 있나?</text>
+    <rect x="270" y="40" width="190" height="104" rx="16" fill="#fff"/>
+    <text x="365" y="82" font-size="19" font-weight="700" fill="#191f28">큐 1,000칸</text>
+    <text x="365" y="112" font-size="18" font-weight="500" fill="#4e5968">에 자리가 있나?</text>
+    <rect x="516" y="40" width="190" height="104" rx="16" fill="#fff"/>
+    <text x="611" y="82" font-size="19" font-weight="700" fill="#191f28">스레드가</text>
+    <text x="611" y="112" font-size="18" font-weight="500" fill="#4e5968">8개보다 적나?</text>
+    <rect x="762" y="40" width="174" height="104" rx="16" fill="#fdeeee"/>
+    <text x="849" y="100" font-size="20" font-weight="700" fill="#c92a2a">거절</text>
+
+    <rect x="24" y="214" width="190" height="80" rx="14" fill="#ebf2ff"/>
+    <text x="119" y="261" font-size="19" font-weight="700" fill="#1f56c7">바로 실행</text>
+    <rect x="270" y="214" width="190" height="80" rx="14" fill="#fff"/>
+    <text x="365" y="261" font-size="19" font-weight="700" fill="#333d4b">큐에서 대기</text>
+    <rect x="516" y="214" width="190" height="80" rx="14" fill="#ebf2ff"/>
+    <text x="611" y="261" font-size="19" font-weight="700" fill="#1f56c7">스레드 추가 후 실행</text>
+    <rect x="762" y="214" width="174" height="80" rx="14" fill="#fff"/>
+    <text x="849" y="248" font-size="17" font-weight="700" fill="#c92a2a">받은 스레드가</text>
+    <text x="849" y="274" font-size="17" font-weight="700" fill="#c92a2a">직접 전송</text>
+  </g>
+  <g stroke="#8b95a1" stroke-width="3.5">
+    <line x1="214" y1="92" x2="262" y2="92" marker-end="url(#ag)"/>
+    <line x1="460" y1="92" x2="508" y2="92" marker-end="url(#ag)"/>
+    <line x1="706" y1="92" x2="754" y2="92" marker-end="url(#ag)"/>
+    <line x1="119" y1="144" x2="119" y2="206" marker-end="url(#ag)"/>
+    <line x1="365" y1="144" x2="365" y2="206" marker-end="url(#ag)"/>
+    <line x1="611" y1="144" x2="611" y2="206" marker-end="url(#ag)"/>
+    <line x1="849" y1="144" x2="849" y2="206" marker-end="url(#ag)"/>
+  </g>
+  <g font-size="15" font-weight="700" fill="#8b95a1">
+    <text x="238" y="80" text-anchor="middle">아니오</text>
+    <text x="484" y="80" text-anchor="middle">아니오</text>
+    <text x="730" y="80" text-anchor="middle">아니오</text>
+    <text x="129" y="182">예</text><text x="375" y="182">예</text><text x="621" y="182">예</text>
+  </g>
+  <rect x="24" y="334" width="912" height="62" rx="14" fill="#fff"/>
+  <text x="480" y="372" text-anchor="middle" font-size="19" font-weight="600" fill="#4e5968">스레드가 2개에서 8개로 늘어나는 건 큐 1,000칸이 가득 찬 뒤</text>
+</svg>

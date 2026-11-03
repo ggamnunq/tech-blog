@@ -17,7 +17,13 @@ export function isVisible(post: Post): boolean {
 /** 최신순 정렬된 글 목록 */
 export async function getPosts(): Promise<Post[]> {
 	const posts = await getCollection('posts', isVisible);
-	return posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+	return posts.sort(
+		(a, b) =>
+			b.data.pubDate.valueOf() - a.data.pubDate.valueOf() ||
+			// 같은 날짜면 시리즈 번호가 큰(나중) 글이 위로
+			(b.data.seriesOrder ?? 0) - (a.data.seriesOrder ?? 0) ||
+			a.id.localeCompare(b.id),
+	);
 }
 
 /** 숨겨진 글(배포에서 빠진 draft) — 403 판별용. 주소는 해시로만 내보냄 */

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="440" viewBox="0 0 960 440" font-family="'Pretendard Variable', Pretendard, sans-serif">
+  <defs><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ef5350"/></marker></defs>
+  <rect width="960" height="440" fill="#f2f4f6"/>
+  <rect x="32" y="48" width="300" height="96" rx="16" fill="#fff"/>
+  <text x="182" y="90" text-anchor="middle" font-size="20" font-weight="700" fill="#191f28">A의 자막 처리 스레드</text>
+  <text x="182" y="118" text-anchor="middle" font-size="16" font-weight="500" fill="#8b95a1">C에게 A의 자막 전송</text>
+  <rect x="32" y="188" width="300" height="96" rx="16" fill="#fff"/>
+  <text x="182" y="230" text-anchor="middle" font-size="20" font-weight="700" fill="#191f28">B의 자막 처리 스레드</text>
+  <text x="182" y="258" text-anchor="middle" font-size="16" font-weight="500" fill="#8b95a1">C에게 B의 자막 전송</text>
+
+  <g fill="none" stroke="#ef5350" stroke-width="4" stroke-linejoin="round">
+    <path d="M340 96 H470 V154 H584" marker-end="url(#ao)"/>
+    <path d="M340 236 H470 V178 H584" marker-end="url(#ao)"/>
+  </g>
+  
+  <rect x="596" y="112" width="332" height="108" rx="16" fill="#fdeeee"/>
+  <text x="762" y="164" text-anchor="middle" font-size="21" font-weight="700" fill="#c92a2a">C의 웹소켓 세션</text>
+  <text x="762" y="196" text-anchor="middle" font-size="17" font-weight="600" fill="#d94848" font-family="'SFMono-Regular', Menlo, monospace">sendMessage()</text>
+
+  <rect x="696" y="94" width="132" height="36" rx="18" fill="#ef5350"/>
+  <text x="762" y="118" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">동시에 호출</text>
+  <rect x="32" y="320" width="896" height="92" rx="14" fill="#fff" />
+  <text x="480" y="358" text-anchor="middle" font-size="18" font-weight="600" fill="#333d4b">WebSocketSession은 여러 스레드가 동시에 메시지를 보내는 것을 지원하지 않음</text>
+  <text x="480" y="390" text-anchor="middle" font-size="17" font-weight="500" fill="#6b7684">Tomcat에서는 IllegalStateException · 기존 코드는 IOException만 처리</text>
+</svg>

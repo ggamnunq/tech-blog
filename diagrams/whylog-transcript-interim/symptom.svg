@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="470" viewBox="0 0 960 470" font-family="'Pretendard Variable', Pretendard, sans-serif">
+  <rect width="960" height="470" fill="#f2f4f6"/>
+  <rect x="24" y="24" width="444" height="422" rx="20" fill="#fff"/>
+  <text x="52" y="76" font-size="22" font-weight="700" fill="#191f28">기대한 회의 기록</text>
+  <rect x="356" y="52" width="84" height="34" rx="17" fill="#ebf2ff"/><text x="398" y="75" text-anchor="middle" font-size="15" font-weight="700" fill="#2f6feb">1줄</text>
+  <rect x="56" y="112" width="380" height="52" rx="12" fill="#f2f4f6"/><circle cx="86" cy="138" r="15" fill="#fff"/><text x="86" y="144" text-anchor="middle" font-size="15" font-weight="700" fill="#4e5968">A</text><text x="114" y="145" font-size="19" font-weight="600" fill="#191f28">안녕하세요</text>
+  <rect x="492" y="24" width="444" height="422" rx="20" fill="#fff"/>
+  <text x="520" y="76" font-size="22" font-weight="700" fill="#191f28">실제로 저장된 기록</text>
+  <rect x="824" y="52" width="84" height="34" rx="17" fill="#fdeeee"/><text x="866" y="75" text-anchor="middle" font-size="15" font-weight="700" fill="#c92a2a">5줄</text>
+  <rect x="524" y="112" width="380" height="52" rx="12" fill="#fdeeee"/><circle cx="554" cy="138" r="15" fill="#fff"/><text x="554" y="144" text-anchor="middle" font-size="15" font-weight="700" fill="#4e5968">A</text><text x="582" y="145" font-size="19" font-weight="600" fill="#c92a2a">안</text>
+  <rect x="524" y="176" width="380" height="52" rx="12" fill="#fdeeee"/><circle cx="554" cy="202" r="15" fill="#fff"/><text x="554" y="208" text-anchor="middle" font-size="15" font-weight="700" fill="#4e5968">A</text><text x="582" y="209" font-size="19" font-weight="600" fill="#c92a2a">안녕</text>
+  <rect x="524" y="240" width="380" height="52" rx="12" fill="#fdeeee"/><circle cx="554" cy="266" r="15" fill="#fff"/><text x="554" y="272" text-anchor="middle" font-size="15" font-weight="700" fill="#4e5968">A</text><text x="582" y="273" font-size="19" font-weight="600" fill="#c92a2a">안녕하</text>
+  <rect x="524" y="304" width="380" height="52" rx="12" fill="#fdeeee"/><circle cx="554" cy="330" r="15" fill="#fff"/><text x="554" y="336" text-anchor="middle" font-size="15" font-weight="700" fill="#4e5968">A</text><text x="582" y="337" font-size="19" font-weight="600" fill="#c92a2a">안녕하세</text>
+  <rect x="524" y="368" width="380" height="52" rx="12" fill="#fdeeee"/><circle cx="554" cy="394" r="15" fill="#fff"/><text x="554" y="400" text-anchor="middle" font-size="15" font-weight="700" fill="#4e5968">A</text><text x="582" y="401" font-size="19" font-weight="600" fill="#c92a2a">안녕하세요</text>
+</svg>

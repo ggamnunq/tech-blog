@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="400" viewBox="0 0 960 400" font-family="'Pretendard Variable', Pretendard, sans-serif">
+  <defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker></defs>
+  <rect width="960" height="400" fill="#f2f4f6"/>
+  <g text-anchor="middle">
+    <text x="120" y="60" font-size="16" font-weight="700" fill="#8b95a1">회의 중</text>
+    <rect x="24" y="76" width="192" height="196" rx="18" fill="#fff"/>
+    <text x="120" y="118" font-size="20" font-weight="700" fill="#191f28">웹소켓 자막</text>
+    <text x="120" y="146" font-size="16" font-weight="500" fill="#6b7684">참가자마다 계속 도착</text>
+    <rect x="44" y="172" width="152" height="80" rx="12" fill="#fdeeee"/>
+    <text x="120" y="204" font-size="17" font-weight="700" fill="#c92a2a">어떤 메시지를</text>
+    <text x="120" y="230" font-size="17" font-weight="700" fill="#c92a2a">모을까?</text>
+
+    <text x="360" y="60" font-size="16" font-weight="700" fill="#8b95a1">회의 중</text>
+    <rect x="264" y="76" width="192" height="196" rx="18" fill="#fff"/>
+    <text x="360" y="118" font-size="20" font-weight="700" fill="#191f28">메모리 목록</text>
+    <text x="360" y="146" font-size="16" font-weight="500" fill="#6b7684">회의별로 발화를 쌓음</text>
+    <g fill="#f2f4f6"><rect x="296" y="172" width="128" height="22" rx="6"/><rect x="296" y="200" width="128" height="22" rx="6"/><rect x="296" y="228" width="128" height="22" rx="6"/></g>
+
+    <text x="600" y="60" font-size="16" font-weight="700" fill="#8b95a1">회의 종료 후</text>
+    <rect x="504" y="76" width="192" height="196" rx="18" fill="#fff"/>
+    <text x="600" y="118" font-size="20" font-weight="700" fill="#191f28">AI 서버</text>
+    <text x="600" y="146" font-size="16" font-weight="500" fill="#6b7684">녹음 전사 결과와</text>
+    <text x="600" y="170" font-size="16" font-weight="500" fill="#6b7684">발화 목록을 맞춰</text>
+    <text x="600" y="194" font-size="16" font-weight="500" fill="#6b7684">발화자 찾기·문장 보정</text>
+    <rect x="536" y="218" width="128" height="34" rx="17" fill="#f2f4f6"/>
+    <text x="600" y="241" font-size="15" font-weight="600" fill="#8b95a1">팀원 작업</text>
+
+    <text x="840" y="60" font-size="16" font-weight="700" fill="#8b95a1">회의 종료 후</text>
+    <rect x="744" y="76" width="192" height="196" rx="18" fill="#ebf2ff"/>
+    <text x="840" y="118" font-size="20" font-weight="700" fill="#1f56c7">대화 기록 저장</text>
+    <text x="840" y="146" font-size="16" font-weight="500" fill="#4e5968">회의 기록 화면에서</text>
+    <text x="840" y="170" font-size="16" font-weight="500" fill="#4e5968">다시 보는 내용</text>
+  </g>
+  <g stroke="#8b95a1" stroke-width="3.5">
+    <line x1="216" y1="174" x2="256" y2="174" marker-end="url(#ag)"/>
+    <line x1="456" y1="174" x2="496" y2="174" marker-end="url(#ag)"/>
+    <line x1="696" y1="174" x2="736" y2="174" marker-end="url(#ag)"/>
+  </g>
+  <text x="476" y="314" text-anchor="middle" font-size="15" font-weight="600" fill="#8b95a1">회의 종료 시</text>
+  <text x="476" y="336" text-anchor="middle" font-size="15" font-weight="600" fill="#8b95a1">목록 + 녹음 전송</text>
+  <path d="M476 274 V296" stroke="#d1d6db" stroke-width="2" stroke-dasharray="4 4"/>
+</svg>

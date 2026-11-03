@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" font-family="'Pretendard Variable', Pretendard, sans-serif">
+  <defs><marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f6feb"/></marker><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker></defs>
+  <rect width="960" height="560" fill="#f2f4f6"/>
+  <rect x="24" y="194" width="196" height="122" rx="16" fill="#fff"/>
+  <text x="122" y="236" text-anchor="middle" font-size="20" font-weight="700" fill="#191f28">수신 스레드</text>
+  <text x="122" y="266" text-anchor="middle" font-size="16" font-weight="500" fill="#6b7684">전송 작업만 넘기고</text>
+  <text x="122" y="290" text-anchor="middle" font-size="16" font-weight="500" fill="#6b7684">바로 다음 메시지로</text>
+
+  <rect x="254" y="194" width="160" height="122" rx="16" fill="#fff"/>
+  <text x="334" y="236" text-anchor="middle" font-size="20" font-weight="700" fill="#191f28">작업 큐</text>
+  <g fill="#d1d6db"><rect x="282" y="256" width="24" height="30" rx="5"/><rect x="312" y="256" width="24" height="30" rx="5"/><rect x="342" y="256" width="24" height="30" rx="5"/></g>
+  <text x="334" y="304" text-anchor="middle" font-size="15" font-weight="500" fill="#8b95a1">최대 1,000개</text>
+
+  <rect x="448" y="164" width="200" height="182" rx="16" fill="#ebf2ff"/>
+  <text x="548" y="208" text-anchor="middle" font-size="20" font-weight="700" fill="#1f56c7">전송 스레드 풀</text>
+  <text x="548" y="242" text-anchor="middle" font-size="17" font-weight="600" fill="#2f6feb">기본 2개</text>
+  <text x="548" y="270" text-anchor="middle" font-size="16" font-weight="500" fill="#4e5968">큐가 가득 차면</text>
+  <text x="548" y="294" text-anchor="middle" font-size="16" font-weight="500" fill="#4e5968">최대 8개까지</text>
+
+  <g stroke-linecap="round">
+    <line x1="220" y1="255" x2="246" y2="255" stroke="#8b95a1" stroke-width="3.5" marker-end="url(#ag)"/>
+    <line x1="414" y1="255" x2="440" y2="255" stroke="#8b95a1" stroke-width="3.5" marker-end="url(#ag)"/>
+    <path d="M648 255 H668 M668 110 V410 M668 110 H684 M668 260 H684 M668 410 H684" fill="none" stroke="#2f6feb" stroke-width="3.5"/>
+  </g>
+  <g fill="none" stroke="#2f6feb" stroke-width="3.5"><path d="M684 110 H690" marker-end="url(#ab)"/><path d="M684 260 H690" marker-end="url(#ab)"/><path d="M684 410 H690" marker-end="url(#ab)"/></g>
+
+  <rect x="700" y="58" width="236" height="104" rx="16" fill="#fff"/>
+  <text x="724" y="98" font-size="20" font-weight="700" fill="#191f28">B 세션</text>
+  <text x="724" y="128" font-size="16" font-weight="500" fill="#6b7684">한 번에 한 스레드만 전송</text>
+  <rect x="700" y="208" width="236" height="104" rx="16" fill="#fdeeee"/>
+  <text x="724" y="248" font-size="20" font-weight="700" fill="#c92a2a">C 세션 (느림)</text>
+  <text x="724" y="278" font-size="16" font-weight="500" fill="#d94848">한도를 넘으면 연결 종료</text>
+  <rect x="700" y="358" width="236" height="104" rx="16" fill="#fff"/>
+  <text x="724" y="398" font-size="20" font-weight="700" fill="#191f28">D 세션</text>
+  <text x="724" y="428" font-size="16" font-weight="500" fill="#6b7684">C를 기다리지 않음</text>
+
+  <text x="936" y="40" text-anchor="end" font-size="15" font-weight="600" fill="#8b95a1">ConcurrentWebSocketSessionDecorator</text>
+  <rect x="24" y="490" width="912" height="50" rx="12" fill="#fff"/>
+  <text x="480" y="522" text-anchor="middle" font-size="17" font-weight="500" fill="#4e5968">세션이 전송 중이면 다른 스레드는 버퍼에 넣고 바로 반환 · 전송 10초 또는 버퍼 512KB를 넘으면 연결 종료</text>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" font-family="'Pretendard Variable', Pretendard, sans-serif">
+  <defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker><marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="20" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f6feb"/></marker></defs>
+  <rect width="960" height="640" fill="#f2f4f6"/>
+  <rect x="32" y="112" width="200" height="448" rx="22" fill="#fff"/>
+  <text x="132" y="330" text-anchor="middle" font-size="26" font-weight="700" fill="#191f28">브라우저</text>
+  <text x="132" y="362" text-anchor="middle" font-size="18" font-weight="500" fill="#8b95a1">livekit-client</text>
+
+  <rect x="380" y="36" width="548" height="340" rx="22" fill="#fff"/>
+  <text x="404" y="78" font-size="20" font-weight="700" fill="#6b7684">Spring Boot 서버</text>
+  <rect x="404" y="98" width="500" height="126" rx="16" fill="#f2f4f6"/>
+  <text x="430" y="140" font-size="23" font-weight="700" fill="#191f28">REST API</text>
+  <text x="430" y="173" font-size="19" font-weight="500" fill="#4e5968">회의 생성·종료 · 접속 토큰 발급</text>
+  <text x="430" y="205" font-size="18" font-weight="600" fill="#2f6feb" font-family="'SFMono-Regular', Menlo, monospace">GET /api/meetings/{id}/rtc-token</text>
+  <rect x="404" y="236" width="500" height="126" rx="16" fill="#f2f4f6"/>
+  <text x="430" y="278" font-size="23" font-weight="700" fill="#191f28">WebSocket</text>
+  <text x="430" y="311" font-size="19" font-weight="500" fill="#4e5968">참가자 목록 · 입장/퇴장 · 채팅 · 자막</text>
+  <text x="430" y="343" font-size="18" font-weight="600" fill="#2f6feb" font-family="'SFMono-Regular', Menlo, monospace">/ws/meetings</text>
+
+  <text x="654" y="408" text-anchor="middle" font-size="17" font-weight="500" fill="#6b7684">토큰은 같은 API Secret으로 서명·검증</text>
+  <text x="654" y="432" text-anchor="middle" font-size="17" font-weight="500" fill="#6b7684">입장할 때 두 서버가 서로 통신하지 않음</text>
+
+  <rect x="380" y="452" width="548" height="156" rx="22" fill="#ebf2ff"/>
+  <text x="404" y="497" font-size="24" font-weight="700" fill="#1f56c7">LiveKit SFU</text>
+  <text x="404" y="532" font-size="20" font-weight="600" fill="#2f6feb">음성 스트림 전달 (WebRTC)</text>
+  <text x="404" y="566" font-size="18" font-weight="500" fill="#4e5968">백엔드는 음성 데이터를 다루지 않음</text>
+
+  <g stroke-linecap="round">
+    <line x1="242" y1="161" x2="394" y2="161" stroke="#b0b8c1" stroke-width="4.5" marker-start="url(#ag)" marker-end="url(#ag)"/>
+    <line x1="242" y1="299" x2="394" y2="299" stroke="#b0b8c1" stroke-width="4.5" marker-start="url(#ag)" marker-end="url(#ag)"/>
+    <line x1="242" y1="530" x2="370" y2="530" stroke="#2f6feb" stroke-width="6" marker-start="url(#ab)" marker-end="url(#ab)"/>
+  </g>
+  <g font-size="18" font-weight="600" text-anchor="middle">
+    <text x="312" y="146" fill="#6b7684">HTTPS</text>
+    <text x="312" y="284" fill="#6b7684">WebSocket</text>
+    <text x="306" y="512" fill="#2f6feb">WebRTC</text>
+  </g>
+</svg>

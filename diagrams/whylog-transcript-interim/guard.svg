@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="470" viewBox="0 0 960 470" font-family="'Pretendard Variable', Pretendard, sans-serif">
+  <defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ef5350"/></marker></defs>
+  <rect width="960" height="470" fill="#f2f4f6"/>
+  <text x="24" y="46" font-size="16" font-weight="700" fill="#8b95a1">FE가 실제로 보내는 중간 결과</text>
+  <rect x="24" y="62" width="250" height="110" rx="16" fill="#fff"/>
+  <text x="46" y="102" font-size="17" font-weight="600" fill="#4e5968" font-family="'SFMono-Regular', Menlo, monospace">type: "audio_text"</text>
+  <text x="46" y="132" font-size="17" font-weight="600" fill="#4e5968" font-family="'SFMono-Regular', Menlo, monospace">text: "안녕"</text>
+  <text x="46" y="158" font-size="15" font-weight="600" fill="#c92a2a">payload 없음</text>
+
+  <g text-anchor="middle">
+    <rect x="320" y="62" width="200" height="110" rx="16" fill="#fff"/>
+    <text x="420" y="106" font-size="19" font-weight="700" fill="#191f28">① type이</text>
+    <text x="420" y="136" font-size="19" font-weight="700" fill="#191f28">audio_text인가?</text>
+    <rect x="566" y="62" width="200" height="110" rx="16" fill="#fdeeee"/>
+    <text x="666" y="100" font-size="19" font-weight="700" fill="#c92a2a">② is_final이</text>
+    <text x="666" y="128" font-size="19" font-weight="700" fill="#c92a2a">false인가?</text>
+    <text x="666" y="156" font-size="15" font-weight="600" fill="#d94848">값이 없으면 "아니오"</text>
+    <rect x="812" y="62" width="124" height="110" rx="16" fill="#ef5350"/>
+    <text x="874" y="112" font-size="20" font-weight="800" fill="#fff">저장</text>
+    <text x="874" y="140" font-size="15" font-weight="600" fill="#fff">중간 결과도</text>
+
+    <rect x="320" y="262" width="200" height="96" rx="16" fill="#fff"/>
+    <text x="420" y="302" font-size="18" font-weight="700" fill="#191f28">speech (확정 결과)</text>
+    <text x="420" y="330" font-size="17" font-weight="600" fill="#c92a2a">저장 대상에서 빠짐</text>
+  </g>
+  <g stroke-width="3.5">
+    <line x1="274" y1="117" x2="312" y2="117" stroke="#8b95a1" marker-end="url(#ag)"/>
+    <line x1="520" y1="117" x2="558" y2="117" stroke="#8b95a1" marker-end="url(#ag)"/>
+    <line x1="766" y1="117" x2="804" y2="117" stroke="#ef5350" marker-end="url(#ar)"/>
+    <line x1="420" y1="172" x2="420" y2="254" stroke="#8b95a1" marker-end="url(#ag)"/>
+  </g>
+  <g font-size="15" font-weight="700" fill="#8b95a1">
+    <text x="539" y="104" text-anchor="middle">예</text>
+    <text x="785" y="104" text-anchor="middle" fill="#d94848">아니오</text>
+    <text x="432" y="220">아니오</text>
+  </g>
+  <rect x="24" y="394" width="912" height="56" rx="14" fill="#fff"/>
+  <text x="480" y="429" text-anchor="middle" font-size="18" font-weight="600" fill="#4e5968">중간 결과를 거르려던 ②가 항상 "아니오"라, 중간 결과는 모두 저장되고 확정 결과는 빠짐</text>
+</svg>

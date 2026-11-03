@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="410" viewBox="0 0 960 410" font-family="'Pretendard Variable', Pretendard, sans-serif">
+  <defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker></defs>
+  <rect width="960" height="410" fill="#f2f4f6"/><g transform="translate(0,-60)">
+  <text x="32" y="124" font-size="19" font-weight="700" fill="#191f28">A의 자막을 받은 스레드</text>
+  <text x="32" y="151" font-size="16" font-weight="500" fill="#8b95a1">참가자에게 하나씩 차례로 전송</text>
+  <rect x="268" y="96" width="132" height="64" rx="12" fill="#fff"/>
+  <text x="334" y="134" text-anchor="middle" font-size="18" font-weight="600" fill="#333d4b">B에게 전송</text>
+  <rect x="408" y="96" width="300" height="64" rx="12" fill="#fdeeee"/>
+  <text x="558" y="124" text-anchor="middle" font-size="18" font-weight="700" fill="#c92a2a">C에게 전송</text>
+  <text x="558" y="148" text-anchor="middle" font-size="16" font-weight="500" fill="#d94848">연결이 느려 전송이 오래 걸림</text>
+  <rect x="716" y="96" width="132" height="64" rx="12" fill="#fff"/>
+  <text x="782" y="134" text-anchor="middle" font-size="18" font-weight="600" fill="#333d4b">D에게 전송</text>
+
+  <text x="32" y="244" font-size="19" font-weight="700" fill="#191f28">A의 다음 자막</text>
+  <text x="32" y="271" font-size="16" font-weight="500" fill="#8b95a1">앞 전송이 다 끝나야 시작</text>
+  <rect x="268" y="216" width="580" height="64" rx="12" fill="#e5e8eb"/>
+  <text x="558" y="254" text-anchor="middle" font-size="18" font-weight="600" fill="#8b95a1">대기</text>
+  <rect x="856" y="216" width="72" height="64" rx="12" fill="#ebf2ff"/>
+  <text x="892" y="254" text-anchor="middle" font-size="18" font-weight="700" fill="#2f6feb">처리</text>
+
+  <line x1="268" y1="322" x2="924" y2="322" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+  <text x="268" y="350" font-size="16" font-weight="600" fill="#8b95a1">시간 →</text>
+
+  <rect x="32" y="378" width="896" height="64" rx="14" fill="#fdeeee"/>
+  <text x="480" y="417" text-anchor="middle" font-size="19" font-weight="600" fill="#c92a2a">참가자가 늘수록 보낼 대상이 늘고, 느린 참가자 하나가 뒤 순서를 모두 붙잡음</text>
+</g></svg>
