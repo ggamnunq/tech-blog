@@ -1,0 +1,68 @@
+---
+import { SITE } from '../consts';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="소개" description={`${SITE.author} 소개`}>
+	<div class="container about">
+		<section class="profile">
+			<img class="profile-avatar" src={SITE.avatar} alt={`${SITE.author} 프로필 사진`} width="96" height="96" />
+			<h1>{SITE.author}</h1>
+			<!-- TODO: 한 줄 소개를 직접 다듬어 주세요 -->
+			<p class="profile-desc">백엔드 개발자를 꿈꾸며 공부하고 있습니다.</p>
+			<div class="profile-links">
+				<a href={SITE.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+			</div>
+		</section>
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		max-width: var(--content);
+		padding-top: 96px;
+	}
+
+	.profile {
+		text-align: center;
+	}
+
+	.profile-avatar {
+		margin: 0 auto 24px;
+		border-radius: 50%;
+		background: var(--bg-soft);
+	}
+
+	h1 {
+		margin: 0;
+		font-size: 32px;
+		font-weight: 700;
+		letter-spacing: -0.02em;
+	}
+
+	.profile-desc {
+		margin: 12px 0 0;
+		font-size: 18px;
+		color: var(--text-sub);
+	}
+
+	.profile-links {
+		display: flex;
+		justify-content: center;
+		gap: 8px;
+		margin-top: 28px;
+	}
+
+	.profile-links a {
+		padding: 10px 18px;
+		border-radius: var(--radius-sm);
+		font-size: 15px;
+		font-weight: 600;
+		color: #fff;
+		background: var(--text);
+	}
+
+	.profile-links a:hover {
+		background: #333d4b;
+	}
+</style>

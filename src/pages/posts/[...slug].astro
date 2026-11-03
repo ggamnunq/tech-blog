@@ -1,0 +1,381 @@
+---
+import { Image } from 'astro:assets';
+import { render } from 'astro:content';
+import '../../styles/prose.css';
+import Toc from '../../components/Toc.astro';
+import { categoryLabel, SITE } from '../../consts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { formatDate, getPosts, isoDate, type Post, readingMinutes, tagSlug, withBase } from '../../lib/posts';
+
+export async function getStaticPaths() {
+	const posts = await getPosts();
+	return posts.map((post, i) => ({
+		params: { slug: post.id },
+		props: { post, newer: posts[i - 1], older: posts[i + 1] },
+	}));
+}
+
+interface Props {
+	post: Post;
+	newer?: Post;
+	older?: Post;
+}
+
+const { post, newer, older } = Astro.props;
+const { Content, headings } = await render(post);
+const { title, description, pubDate, updatedDate, category, tags, thumbnail, draft } = post.data;
+---
+
+<BaseLayout title={title} description={description} image={thumbnail?.src} type="article">
+	<div class="container post-layout">
+		<article class="post">
+			<header class="post-header">
+				<a class="post-category" href={withBase(`category/${category}/`)}>{categoryLabel(category)}</a>
+				<h1 class="post-title">
+					{title}
+					{draft && <span class="draft-badge">초안 · 배포 안 됨</span>}
+				</h1>
+				<div class="post-meta">
+					<img class="avatar" src={SITE.avatar} alt="" width="36" height="36" loading="lazy" />
+					<div>
+						<p class="meta-author">{SITE.author}</p>
+						<p class="meta-sub">
+							<time datetime={isoDate(pubDate)}>{formatDate(pubDate)}</time>
+							{
+								updatedDate && (
+									<>
+										<span aria-hidden="true">·</span>
+										<span>수정 {formatDate(updatedDate)}</span>
+									</>
+								)
+							}
+							<span aria-hidden="true">·</span>
+							<span>{readingMinutes(post.body)}분 읽기</span>
+						</p>
+					</div>
+				</div>
+			</header>
+
+			{
+				thumbnail && (
+					<div class="post-hero">
+						<Image src={thumbnail} alt="" width={1440} loading="eager" />
+					</div>
+				)
+			}
+
+			<div class="prose">
+				<Content />
+			</div>
+
+			{
+				tags.length > 0 && (
+					<ul class="post-tags" aria-label="태그">
+						{tags.map((tag) => (
+							<li>
+								<a class="tag" href={withBase(`tags/${tagSlug(tag)}/`)}>
+									{tag}
+								</a>
+							</li>
+						))}
+					</ul>
+				)
+			}
+
+			<section class="author-card" aria-label="작성자">
+				<img class="author-avatar" src={SITE.avatar} alt="" width="56" height="56" loading="lazy" />
+				<div>
+					<p class="author-name">{SITE.author}</p>
+					<p class="author-desc">{SITE.description}</p>
+				</div>
+				<a class="author-link" href={SITE.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+			</section>
+
+			{
+				(newer || older) && (
+					<nav class="post-nav" aria-label="이전·다음 글">
+						{older ? (
+							<a class="post-nav-item" href={withBase(`posts/${older.id}/`)}>
+								<span class="post-nav-label">이전 글</span>
+								<span class="post-nav-title">{older.data.title}</span>
+							</a>
+						) : (
+							<span />
+						)}
+						{newer && (
+							<a class="post-nav-item is-next" href={withBase(`posts/${newer.id}/`)}>
+								<span class="post-nav-label">다음 글</span>
+								<span class="post-nav-title">{newer.data.title}</span>
+							</a>
+						)}
+					</nav>
+				)
+			}
+		</article>
+
+		<aside class="post-aside">
+			<Toc headings={headings} />
+		</aside>
+	</div>
+</BaseLayout>
+
+<style>
+	.post-layout {
+		display: grid;
+		grid-template-columns: minmax(0, var(--content)) 220px;
+		justify-content: space-between;
+		gap: 64px;
+		padding-top: 64px;
+	}
+
+	.post {
+		min-width: 0;
+	}
+
+	.post-header {
+		margin-bottom: 48px;
+	}
+
+	.post-category {
+		display: inline-block;
+		margin-bottom: 14px;
+		font-size: 15px;
+		font-weight: 600;
+		color: var(--accent);
+	}
+
+	.post-category:hover {
+		color: var(--accent-strong);
+	}
+
+	.post-title {
+		margin: 0;
+		font-size: 38px;
+		line-height: 1.38;
+		font-weight: 700;
+		letter-spacing: -0.025em;
+	}
+
+	.post-meta {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		margin-top: 28px;
+	}
+
+	.avatar {
+		border-radius: 50%;
+		background: var(--bg-soft);
+	}
+
+	.meta-author {
+		margin: 0;
+		font-size: 15px;
+		font-weight: 600;
+	}
+
+	.meta-sub {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+		margin: 2px 0 0;
+		font-size: 14px;
+		color: var(--text-muted);
+	}
+
+	.post-hero {
+		margin-bottom: 48px;
+		border-radius: var(--radius-lg);
+		overflow: hidden;
+		background: var(--bg-soft);
+	}
+
+	.post-hero :global(img) {
+		width: 100%;
+	}
+
+	.post-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		margin: 56px 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.author-card {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		margin-top: 48px;
+		padding: 24px;
+		border-radius: var(--radius-lg);
+		background: var(--bg-softer);
+		border: 1px solid var(--border);
+	}
+
+	.author-avatar {
+		flex: none;
+		border-radius: 50%;
+	}
+
+	.author-card > div {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.author-name {
+		margin: 0;
+		font-size: 17px;
+		font-weight: 700;
+	}
+
+	.author-desc {
+		margin: 4px 0 0;
+		font-size: 14px;
+		color: var(--text-sub);
+	}
+
+	.author-link {
+		flex: none;
+		padding: 8px 14px;
+		border-radius: var(--radius-sm);
+		font-size: 14px;
+		font-weight: 600;
+		color: var(--text-sub);
+		background: #fff;
+		border: 1px solid var(--border);
+	}
+
+	.author-link:hover {
+		background: var(--bg-soft);
+	}
+
+	.post-nav {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 12px;
+		margin-top: 24px;
+	}
+
+	.post-nav-item {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		padding: 20px 22px;
+		border-radius: var(--radius);
+		border: 1px solid var(--border);
+		transition:
+			border-color 0.15s ease,
+			background-color 0.15s ease;
+	}
+
+	.post-nav-item:hover {
+		border-color: #d1d6db;
+		background: var(--bg-softer);
+	}
+
+	.post-nav-item.is-next {
+		text-align: right;
+		grid-column: 2;
+	}
+
+	.post-nav-label {
+		font-size: 13px;
+		font-weight: 600;
+		color: var(--text-muted);
+	}
+
+	.post-nav-title {
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 1.5;
+		color: var(--text);
+	}
+
+	.post-aside {
+		padding-top: 260px;
+	}
+
+	@media (max-width: 1080px) {
+		.post-layout {
+			grid-template-columns: minmax(0, var(--content));
+			justify-content: center;
+		}
+
+		.post-aside {
+			display: none;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.post-layout {
+			padding-top: 40px;
+		}
+
+		.post-header {
+			margin-bottom: 36px;
+		}
+
+		.post-title {
+			font-size: 28px;
+		}
+
+		.author-card {
+			flex-wrap: wrap;
+		}
+
+		.post-nav {
+			grid-template-columns: 1fr;
+		}
+
+		.post-nav-item.is-next {
+			grid-column: 1;
+		}
+	}
+</style>
+
+<script>
+	// 표는 가로 스크롤 가능한 래퍼로 감쌈
+	for (const table of document.querySelectorAll<HTMLTableElement>('.prose table')) {
+		const wrap = document.createElement('div');
+		wrap.className = 'table-wrap';
+		table.parentNode?.insertBefore(wrap, table);
+		wrap.appendChild(table);
+	}
+
+	// 코드 블록에 언어 라벨과 복사 버튼 추가
+	for (const pre of document.querySelectorAll<HTMLPreElement>('.prose pre')) {
+		const wrapper = document.createElement('div');
+		wrapper.className = 'code-block';
+		pre.parentNode?.insertBefore(wrapper, pre);
+		wrapper.appendChild(pre);
+
+		const lang = pre.dataset.language;
+		if (lang && lang !== 'plaintext') {
+			const label = document.createElement('span');
+			label.className = 'code-lang';
+			label.textContent = lang;
+			wrapper.appendChild(label);
+		}
+
+		const button = document.createElement('button');
+		button.type = 'button';
+		button.className = 'code-copy';
+		button.textContent = '복사';
+		button.addEventListener('click', async () => {
+			try {
+				await navigator.clipboard.writeText(pre.querySelector('code')?.innerText ?? '');
+				button.textContent = '복사됨';
+				button.classList.add('is-done');
+			} catch {
+				button.textContent = '실패';
+			}
+			setTimeout(() => {
+				button.textContent = '복사';
+				button.classList.remove('is-done');
+			}, 1500);
+		});
+		wrapper.appendChild(button);
+	}
+</script>

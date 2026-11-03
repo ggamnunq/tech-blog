@@ -1,0 +1,28 @@
+---
+import type { Post } from '../lib/posts';
+import PostCard from './PostCard.astro';
+
+interface Props {
+	posts: Post[];
+	emptyText?: string;
+}
+
+const { posts, emptyText = '아직 작성된 글이 없어요.' } = Astro.props;
+---
+
+<section class="post-list" aria-label="글 목록">
+	{posts.length > 0 ? posts.map((post) => <PostCard post={post} />) : <p class="empty">{emptyText}</p>}
+</section>
+
+<style>
+	.post-list {
+		padding-top: 8px;
+	}
+
+	.empty {
+		padding: 80px 0;
+		text-align: center;
+		font-size: 16px;
+		color: var(--text-muted);
+	}
+</style>

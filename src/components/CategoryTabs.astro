@@ -1,0 +1,49 @@
+---
+import { CATEGORIES } from '../consts';
+import { type Post, withBase } from '../lib/posts';
+
+interface Props {
+	posts: Post[];
+	current: string;
+}
+
+const { posts, current } = Astro.props;
+const counts = new Map<string, number>();
+for (const post of posts) counts.set(post.data.category, (counts.get(post.data.category) ?? 0) + 1);
+
+const tabs = [
+	{ slug: 'all', label: '전체', href: withBase('/'), count: posts.length },
+	...CATEGORIES.filter((c) => counts.has(c.slug)).map((c) => ({
+		slug: c.slug,
+		label: c.label,
+		href: withBase(`category/${c.slug}/`),
+		count: counts.get(c.slug) ?? 0,
+	})),
+];
+---
+
+<nav class="tabs" aria-label="카테고리">
+	{
+		tabs.map((tab) => (
+			<a href={tab.href} class:list={['chip', { 'is-active': tab.slug === current }]} aria-current={tab.slug === current ? 'page' : undefined}>
+				{tab.label}
+				<span class="chip-count">{tab.count}</span>
+			</a>
+		))
+	}
+</nav>
+
+<style>
+	.tabs {
+		display: flex;
+		gap: 8px;
+		padding-bottom: 16px;
+		border-bottom: 1px solid var(--border);
+		overflow-x: auto;
+		scrollbar-width: none;
+	}
+
+	.tabs::-webkit-scrollbar {
+		display: none;
+	}
+</style>

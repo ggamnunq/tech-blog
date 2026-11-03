@@ -1,0 +1,35 @@
+---
+import CategoryTabs from '../../components/CategoryTabs.astro';
+import PostList from '../../components/PostList.astro';
+import { CATEGORIES, SITE } from '../../consts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPosts, type Post } from '../../lib/posts';
+
+export async function getStaticPaths() {
+	const posts = await getPosts();
+	return CATEGORIES.filter((c) => posts.some((p) => p.data.category === c.slug)).map((c) => ({
+		params: { category: c.slug },
+		props: { label: c.label, all: posts },
+	}));
+}
+
+interface Props {
+	label: string;
+	all: Post[];
+}
+
+const { category } = Astro.params;
+const { label, all } = Astro.props;
+const posts = all.filter((p) => p.data.category === category);
+---
+
+<BaseLayout title={label} description={`${label} 카테고리의 글 목록`}>
+	<div class="container">
+		<section class="page-head">
+			<h1>{SITE.heroTitle}</h1>
+			<p>{SITE.description}</p>
+		</section>
+		<CategoryTabs posts={all} current={category} />
+		<PostList posts={posts} />
+	</div>
+</BaseLayout>

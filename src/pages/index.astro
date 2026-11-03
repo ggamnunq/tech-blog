@@ -1,0 +1,20 @@
+---
+import CategoryTabs from '../components/CategoryTabs.astro';
+import PostList from '../components/PostList.astro';
+import { SITE } from '../consts';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPosts } from '../lib/posts';
+
+const posts = await getPosts();
+---
+
+<BaseLayout>
+	<div class="container">
+		<section class="page-head">
+			<h1>{SITE.heroTitle}</h1>
+			<p>{SITE.description}</p>
+		</section>
+		<CategoryTabs posts={posts} current="all" />
+		<PostList posts={posts} />
+	</div>
+</BaseLayout>

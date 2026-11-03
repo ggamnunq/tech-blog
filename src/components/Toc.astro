@@ -1,0 +1,102 @@
+---
+import type { MarkdownHeading } from 'astro';
+
+interface Props {
+	headings: MarkdownHeading[];
+}
+
+const items = Astro.props.headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+{
+	items.length >= 2 && (
+		<nav class="toc" aria-label="목차">
+			<p class="toc-title">목차</p>
+			<ol>
+				{items.map((h) => (
+					<li class:list={[`depth-${h.depth}`]}>
+						<a href={`#${h.slug}`} data-toc-link={h.slug}>
+							{h.text}
+						</a>
+					</li>
+				))}
+			</ol>
+		</nav>
+	)
+}
+
+<style>
+	.toc {
+		position: sticky;
+		top: calc(var(--header-h) + 40px);
+		max-height: calc(100vh - var(--header-h) - 80px);
+		overflow-y: auto;
+		padding-left: 16px;
+		border-left: 1px solid var(--border);
+	}
+
+	.toc-title {
+		margin: 0 0 12px;
+		font-size: 13px;
+		font-weight: 700;
+		color: var(--text-muted);
+	}
+
+	ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		margin: 0;
+	}
+
+	a {
+		display: block;
+		padding: 5px 0;
+		font-size: 14px;
+		line-height: 1.5;
+		color: var(--text-muted);
+		transition: color 0.15s ease;
+	}
+
+	.depth-3 a {
+		padding-left: 12px;
+		font-size: 13px;
+	}
+
+	a:hover {
+		color: var(--text-sub);
+	}
+
+	a.is-active {
+		color: var(--accent);
+		font-weight: 600;
+	}
+</style>
+
+<script>
+	const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-toc-link]')];
+	if (links.length) {
+		const targets = links
+			.map((link) => document.getElementById(link.dataset.tocLink ?? ''))
+			.filter((el): el is HTMLElement => el !== null);
+
+		const setActive = () => {
+			const offset = window.innerHeight * 0.25;
+			let current = targets[0]?.id;
+			for (const el of targets) {
+				if (el.getBoundingClientRect().top - offset <= 0) current = el.id;
+			}
+			// 페이지 끝에 닿으면 마지막 항목 활성화
+			if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+				current = targets.at(-1)?.id;
+			}
+			for (const link of links) link.classList.toggle('is-active', link.dataset.tocLink === current);
+		};
+
+		setActive();
+		window.addEventListener('scroll', setActive, { passive: true });
+	}
+</script>

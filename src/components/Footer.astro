@@ -1,0 +1,60 @@
+---
+import { SITE } from '../consts';
+import { withBase } from '../lib/posts';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+	<div class="container footer-inner">
+		<div>
+			<p class="footer-title">{SITE.title}</p>
+			<p class="footer-copy">© {year} {SITE.author}. All rights reserved.</p>
+		</div>
+		<nav class="footer-links" aria-label="바닥글 메뉴">
+			<a href={SITE.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+			<a href={withBase('rss.xml')}>RSS</a>
+		</nav>
+	</div>
+</footer>
+
+<style>
+	.site-footer {
+		margin-top: 120px;
+		padding: 40px 0 56px;
+		border-top: 1px solid var(--border);
+		background: var(--bg-softer);
+	}
+
+	.footer-inner {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 24px;
+	}
+
+	.footer-title {
+		margin: 0;
+		font-size: 16px;
+		font-weight: 700;
+		color: var(--text-sub);
+	}
+
+	.footer-copy {
+		margin: 6px 0 0;
+		font-size: 14px;
+		color: var(--text-muted);
+	}
+
+	.footer-links {
+		display: flex;
+		gap: 20px;
+		font-size: 14px;
+		font-weight: 500;
+		color: var(--text-sub);
+	}
+
+	.footer-links a:hover {
+		color: var(--text);
+	}
+</style>
