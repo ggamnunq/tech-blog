@@ -1,7 +1,10 @@
 ---
 title: "“안녕하세요”가 “안, 안녕, 안녕하…”로 저장되던 문제"
+seoTitle: "STT 중간 결과(is_final)가 회의 기록에 그대로 저장되던 문제"
 description: "WhyLog 회의 기록에 문장 하나가 글자가 늘어나는 조각 여러 줄로 저장됐습니다. 서버는 중간 인식 결과를 is_final 값으로 거르려 했지만 클라이언트는 그 값을 보내지 않았고, 확정 결과는 아예 저장 대상에서 빠져 있었습니다."
 pubDate: 2026-11-03
+updatedDate: 2026-11-04
+workPeriod: "2026.05"
 categories: [troubleshooting, backend]
 tags: [WhyLog, WebSocket, STT, 메시지 설계]
 series: whylog-voice

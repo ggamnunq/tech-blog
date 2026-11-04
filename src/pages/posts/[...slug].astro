@@ -4,9 +4,9 @@ import { render } from 'astro:content';
 import '../../styles/prose.css';
 import SeriesBox from '../../components/SeriesBox.astro';
 import Toc from '../../components/Toc.astro';
-import { categoryLabel, SITE } from '../../consts';
+import { categoryLabel, findSeries, SITE } from '../../consts';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { formatDate, getPosts, isoDate, type Post, readingMinutes, seriesPosts, tagSlug, withBase } from '../../lib/posts';
+import { formatDate, getPosts, isoDate, isoDateKst, type Post, readingMinutes, seriesPosts, tagSlug, withBase } from '../../lib/posts';
 
 export async function getStaticPaths() {
 	const posts = await getPosts();
@@ -32,10 +32,34 @@ const { post, newer, older, parts } = Astro.props;
 const partIndex = parts.findIndex((p) => p.id === post.id);
 const nextPart = partIndex >= 0 ? parts[partIndex + 1] : undefined;
 const { Content, headings } = await render(post);
-const { title, description, pubDate, updatedDate, categories, tags, thumbnail, draft } = post.data;
+const { title, seoTitle, description, pubDate, updatedDate, workPeriod, categories, tags, thumbnail, draft } = post.data;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'BlogPosting',
+	headline: seoTitle ?? title,
+	description,
+	datePublished: isoDateKst(pubDate),
+	dateModified: isoDateKst(updatedDate ?? pubDate),
+	inLanguage: 'ko',
+	url: canonical,
+	mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+	author: { '@type': 'Person', name: SITE.author, url: SITE.github },
+	publisher: { '@type': 'Person', name: SITE.author, url: SITE.github },
+	keywords: tags.join(', '),
+	...(thumbnail ? { image: new URL(thumbnail.src, Astro.site).toString() } : {}),
+	...(post.data.series ? { isPartOf: { '@type': 'CreativeWorkSeries', name: findSeries(post.data.series)?.title } } : {}),
+};
 ---
 
-<BaseLayout title={title} description={description} image={thumbnail?.src} type="article">
+<BaseLayout
+	title={seoTitle ?? title}
+	description={description}
+	image={thumbnail?.src}
+	type="article"
+	article={{ publishedTime: pubDate, modifiedTime: updatedDate, tags }}
+	jsonLd={jsonLd}
+>
 	<div class="container post-layout">
 		<article class="post">
 			<header class="post-header">
@@ -73,6 +97,13 @@ const { title, description, pubDate, updatedDate, categories, tags, thumbnail, d
 							<span>{readingMinutes(post.body)}분 읽기</span>
 						</p>
 					</div>
+					{
+						workPeriod && (
+							<span class="work-period" title="실제로 작업한 시기">
+								작업 시기 {workPeriod}
+							</span>
+						)
+					}
 				</div>
 			</header>
 
@@ -199,9 +230,25 @@ const { title, description, pubDate, updatedDate, categories, tags, thumbnail, d
 
 	.post-meta {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
-		gap: 12px;
+		gap: 10px 12px;
 		margin-top: 28px;
+	}
+
+	.post-meta > div {
+		flex: none;
+	}
+
+	.work-period {
+		margin-left: auto;
+		padding: 6px 12px;
+		border-radius: 999px;
+		font-size: 13px;
+		font-weight: 600;
+		color: var(--text-sub);
+		background: var(--bg-soft);
+		white-space: nowrap;
 	}
 
 	.avatar {
@@ -387,6 +434,11 @@ const { title, description, pubDate, updatedDate, categories, tags, thumbnail, d
 
 		.post-title {
 			font-size: 28px;
+		}
+
+		/* 모바일: 작업 시기 배지는 이름·날짜 아래 줄로 */
+		.work-period {
+			margin-left: 48px;
 		}
 
 		.author-card {

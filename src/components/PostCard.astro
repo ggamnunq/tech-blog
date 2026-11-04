@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, pubDate, categories, thumbnail, draft } = post.data;
+const { title, description, pubDate, workPeriod, categories, thumbnail, draft } = post.data;
 ---
 
 <article class="post-card">
@@ -24,6 +24,14 @@ const { title, description, pubDate, categories, thumbnail, draft } = post.data;
 				<time datetime={isoDate(pubDate)}>{formatDate(pubDate)}</time>
 				<span class="dot" aria-hidden="true"></span>
 				<span>{readingMinutes(post.body)}분 읽기</span>
+				{
+					workPeriod && (
+						<>
+							<span class="dot" aria-hidden="true" />
+							<span>작업 {workPeriod}</span>
+						</>
+					)
+				}
 			</div>
 		</div>
 		{

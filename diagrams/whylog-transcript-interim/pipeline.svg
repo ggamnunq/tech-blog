@@ -4,7 +4,7 @@
   <g text-anchor="middle">
     <text x="120" y="60" font-size="16" font-weight="700" fill="#8b95a1">회의 중</text>
     <rect x="24" y="76" width="192" height="196" rx="18" fill="#fff"/>
-    <text x="120" y="118" font-size="20" font-weight="700" fill="#191f28">웹소켓 자막</text>
+    <image href="icon:lucide/mic#4E5968" x="51" y="95" width="28" height="28"/><text x="87" y="118" font-size="20" font-weight="700" fill="#191f28" text-anchor="start">웹소켓 자막</text>
     <text x="120" y="146" font-size="16" font-weight="500" fill="#6b7684">참가자마다 계속 도착</text>
     <rect x="44" y="172" width="152" height="80" rx="12" fill="#fdeeee"/>
     <text x="120" y="204" font-size="17" font-weight="700" fill="#c92a2a">어떤 메시지를</text>
@@ -12,13 +12,13 @@
 
     <text x="360" y="60" font-size="16" font-weight="700" fill="#8b95a1">회의 중</text>
     <rect x="264" y="76" width="192" height="196" rx="18" fill="#fff"/>
-    <text x="360" y="118" font-size="20" font-weight="700" fill="#191f28">메모리 목록</text>
+    <image href="icon:simple/springboot#6DB33F" x="291" y="95" width="28" height="28"/><text x="327" y="118" font-size="20" font-weight="700" fill="#191f28" text-anchor="start">메모리 목록</text>
     <text x="360" y="146" font-size="16" font-weight="500" fill="#6b7684">회의별로 발화를 쌓음</text>
     <g fill="#f2f4f6"><rect x="296" y="172" width="128" height="22" rx="6"/><rect x="296" y="200" width="128" height="22" rx="6"/><rect x="296" y="228" width="128" height="22" rx="6"/></g>
 
     <text x="600" y="60" font-size="16" font-weight="700" fill="#8b95a1">회의 종료 후</text>
     <rect x="504" y="76" width="192" height="196" rx="18" fill="#fff"/>
-    <text x="600" y="118" font-size="20" font-weight="700" fill="#191f28">AI 서버</text>
+    <image href="icon:simple/fastapi#009688" x="547" y="95" width="28" height="28"/><text x="583" y="118" font-size="20" font-weight="700" fill="#191f28" text-anchor="start">AI 서버</text>
     <text x="600" y="146" font-size="16" font-weight="500" fill="#6b7684">녹음 전사 결과와</text>
     <text x="600" y="170" font-size="16" font-weight="500" fill="#6b7684">발화 목록을 맞춰</text>
     <text x="600" y="194" font-size="16" font-weight="500" fill="#6b7684">발화자 찾기·문장 보정</text>
@@ -27,7 +27,7 @@
 
     <text x="840" y="60" font-size="16" font-weight="700" fill="#8b95a1">회의 종료 후</text>
     <rect x="744" y="76" width="192" height="196" rx="18" fill="#ebf2ff"/>
-    <text x="840" y="118" font-size="20" font-weight="700" fill="#1f56c7">대화 기록 저장</text>
+    <image href="icon:devicon/mysql/mysql-original" x="760" y="95" width="28" height="28"/><text x="796" y="118" font-size="20" font-weight="700" fill="#1f56c7" text-anchor="start">대화 기록 저장</text>
     <text x="840" y="146" font-size="16" font-weight="500" fill="#4e5968">회의 기록 화면에서</text>
     <text x="840" y="170" font-size="16" font-weight="500" fill="#4e5968">다시 보는 내용</text>
   </g>

@@ -2,6 +2,8 @@
 title: "실시간 자막이 참가자가 늘수록 늦게 뜨던 문제"
 description: "WhyLog 실시간 회의에서 자막을 웹소켓으로 참가자 모두에게 보내던 구조가 동기 방식이라 참가자가 늘수록 지연이 커졌습니다. 원인을 짚고 전송 스레드 분리와 ConcurrentWebSocketSessionDecorator로 개선한 과정을 정리했습니다."
 pubDate: 2026-11-03
+updatedDate: 2026-11-04
+workPeriod: "2026.04"
 categories: [troubleshooting, backend]
 tags: [WhyLog, WebSocket, Spring, 동시성, 성능]
 series: whylog-voice

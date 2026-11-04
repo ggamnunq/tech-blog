@@ -55,6 +55,11 @@ export function isoDate(date: Date): string {
 	return date.toISOString();
 }
 
+/** frontmatter 날짜(YYYY-MM-DD)를 한국 시간 기준 ISO 문자열로 — 구조화 데이터·article 메타용 */
+export function isoDateKst(date: Date): string {
+	return `${date.toISOString().slice(0, 10)}T00:00:00+09:00`;
+}
+
 /** base(/tech-blog)를 붙인 내부 링크 */
 export function withBase(path = '/'): string {
 	const base = import.meta.env.BASE_URL.replace(/\/$/, '');

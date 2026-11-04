@@ -2,7 +2,7 @@
   <defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker><marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f6feb"/></marker></defs>
   <rect width="960" height="500" fill="#f2f4f6"/>
   <rect x="24" y="160" width="184" height="118" rx="16" fill="#fff"/>
-  <text x="116" y="208" text-anchor="middle" font-size="21" font-weight="700" fill="#191f28">참가자 A</text>
+  <image href="icon:lucide/user#4E5968" x="40" y="186" width="30" height="30"/><text x="78" y="209" font-size="21" font-weight="700" fill="#191f28">참가자 A</text>
   <text x="116" y="238" text-anchor="middle" font-size="16" font-weight="500" fill="#8b95a1">"안녕하세요" 발화</text>
   <rect x="236" y="84" width="220" height="44" rx="12" fill="#fff"/><text x="252" y="112" font-size="14" font-weight="600" fill="#8b95a1" font-family="'SFMono-Regular', Menlo, monospace">audio_text</text><text x="352" y="113" font-size="18" font-weight="700" fill="#333d4b">안</text>
   <rect x="236" y="138" width="220" height="44" rx="12" fill="#fff"/><text x="252" y="166" font-size="14" font-weight="600" fill="#8b95a1" font-family="'SFMono-Regular', Menlo, monospace">audio_text</text><text x="352" y="167" font-size="18" font-weight="700" fill="#333d4b">안녕</text>
@@ -14,14 +14,14 @@
   <path d="M456 106 H474 M456 160 H474 M456 214 H474 M456 268 H474 M456 322 H474 M474 106 V322" fill="none" stroke="#b0b8c1" stroke-width="3"/>
   <line x1="474" y1="214" x2="500" y2="214" stroke="#8b95a1" stroke-width="3.5" marker-end="url(#ag)"/>
   <rect x="508" y="156" width="168" height="116" rx="16" fill="#fff"/>
-  <text x="592" y="204" text-anchor="middle" font-size="21" font-weight="700" fill="#191f28">Spring 서버</text>
+  <image href="icon:simple/springboot#6DB33F" x="524" y="184" width="26" height="26"/><text x="558" y="205" font-size="21" font-weight="700" fill="#191f28">Spring 서버</text>
   <text x="592" y="234" text-anchor="middle" font-size="16" font-weight="500" fill="#8b95a1">받을 때마다 전원에게</text>
   <path d="M676 214 H700 M700 79 V349 M700 79 H716 M700 169 H716 M700 259 H716 M700 349 H716" fill="none" stroke="#2f6feb" stroke-width="3.5"/>
   <g fill="none" stroke="#2f6feb" stroke-width="3.5"><path d="M712 79 H716" marker-end="url(#ab)"/><path d="M712 169 H716" marker-end="url(#ab)"/><path d="M712 259 H716" marker-end="url(#ab)"/><path d="M712 349 H716" marker-end="url(#ab)"/></g>
-  <rect x="724" y="44" width="212" height="70" rx="14" fill="#fff"/><text x="746" y="87" font-size="19" font-weight="700" fill="#191f28">참가자 A (본인)</text><text x="914" y="87" text-anchor="end" font-size="17" font-weight="600" fill="#2f6feb">5개</text>
-  <rect x="724" y="134" width="212" height="70" rx="14" fill="#fff"/><text x="746" y="177" font-size="19" font-weight="700" fill="#191f28">참가자 B</text><text x="914" y="177" text-anchor="end" font-size="17" font-weight="600" fill="#2f6feb">5개</text>
-  <rect x="724" y="224" width="212" height="70" rx="14" fill="#fff"/><text x="746" y="267" font-size="19" font-weight="700" fill="#191f28">참가자 C</text><text x="914" y="267" text-anchor="end" font-size="17" font-weight="600" fill="#2f6feb">5개</text>
-  <rect x="724" y="314" width="212" height="70" rx="14" fill="#fff"/><text x="746" y="357" font-size="19" font-weight="700" fill="#191f28">참가자 D</text><text x="914" y="357" text-anchor="end" font-size="17" font-weight="600" fill="#2f6feb">5개</text>
+  <rect x="724" y="44" width="212" height="70" rx="14" fill="#fff"/><image href="icon:lucide/user#4E5968" x="742" y="65" width="28" height="28"/><text x="780" y="87" font-size="19" font-weight="700" fill="#191f28">A (본인)</text><text x="914" y="87" text-anchor="end" font-size="17" font-weight="600" fill="#2f6feb">5개</text>
+  <rect x="724" y="134" width="212" height="70" rx="14" fill="#fff"/><image href="icon:lucide/user#4E5968" x="742" y="155" width="28" height="28"/><text x="780" y="177" font-size="19" font-weight="700" fill="#191f28">B</text><text x="914" y="177" text-anchor="end" font-size="17" font-weight="600" fill="#2f6feb">5개</text>
+  <rect x="724" y="224" width="212" height="70" rx="14" fill="#fff"/><image href="icon:lucide/user#4E5968" x="742" y="245" width="28" height="28"/><text x="780" y="267" font-size="19" font-weight="700" fill="#191f28">C</text><text x="914" y="267" text-anchor="end" font-size="17" font-weight="600" fill="#2f6feb">5개</text>
+  <rect x="724" y="314" width="212" height="70" rx="14" fill="#fff"/><image href="icon:lucide/user#4E5968" x="742" y="335" width="28" height="28"/><text x="780" y="357" font-size="19" font-weight="700" fill="#191f28">D</text><text x="914" y="357" text-anchor="end" font-size="17" font-weight="600" fill="#2f6feb">5개</text>
   <rect x="24" y="414" width="912" height="62" rx="14" fill="#fdeeee"/>
   <text x="480" y="452" text-anchor="middle" font-size="20" font-weight="600" fill="#c92a2a">예) 문장 하나에 메시지 5개 × 참가자 4명 = 서버가 20번 전송</text>
 </svg>

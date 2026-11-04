@@ -28,3 +28,6 @@ src/content/posts/mock/
 
 # AI 작업 지침 — 팀원 정보 등이 있어 로컬 전용
 CLAUDE.md
+
+# 다이어그램 시안 (렌더 결과는 node_modules/.cache/diagram-preview)
+diagrams/_*/

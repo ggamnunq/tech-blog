@@ -2,6 +2,8 @@
 title: "웹소켓으로 음성을 중계하던 서버를 LiveKit SFU로 바꾼 이유"
 description: "WhyLog 실시간 음성 회의에서 처음엔 Spring 서버가 웹소켓으로 음성을 중계했습니다. 서버 중계·P2P·MCU·SFU를 비교해 SFU를 고르고, 백엔드는 접속 토큰만 발급하도록 역할을 나눈 과정을 정리했습니다."
 pubDate: 2026-11-03
+updatedDate: 2026-11-04
+workPeriod: "2026.03 ~ 04"
 categories: [backend, project]
 tags: [WhyLog, WebRTC, LiveKit, WebSocket, Spring]
 series: whylog-voice

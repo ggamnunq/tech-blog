@@ -12,7 +12,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "diagrams": "node scripts/render-diagrams.mjs",
-    "dev:mock": "SHOW_MOCK=true astro dev"
+    "dev:mock": "SHOW_MOCK=true astro dev",
+    "aws-icons": "bash scripts/fetch-aws-icons.sh"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",
@@ -23,7 +24,10 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
+    "devicon": "^2.18.0",
+    "lucide-static": "^1.67.0",
     "playwright": "^1.64.1",
+    "simple-icons": "^16.36.0",
     "typescript": "^6.0.3"
   }
 }

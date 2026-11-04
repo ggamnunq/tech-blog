@@ -2,11 +2,11 @@
   <defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker><marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="20" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f6feb"/></marker></defs>
   <rect width="960" height="640" fill="#f2f4f6"/>
   <rect x="32" y="112" width="200" height="448" rx="22" fill="#fff"/>
-  <text x="132" y="330" text-anchor="middle" font-size="26" font-weight="700" fill="#191f28">브라우저</text>
-  <text x="132" y="362" text-anchor="middle" font-size="18" font-weight="500" fill="#8b95a1">livekit-client</text>
+  <image href="icon:lucide/app-window#4E5968" x="96" y="252" width="72" height="72"/><text x="132" y="368" text-anchor="middle" font-size="26" font-weight="700" fill="#191f28">브라우저</text>
+  <text x="132" y="398" text-anchor="middle" font-size="18" font-weight="500" fill="#8b95a1">livekit-client</text>
 
   <rect x="380" y="36" width="548" height="340" rx="22" fill="#fff"/>
-  <text x="404" y="78" font-size="20" font-weight="700" fill="#6b7684">Spring Boot 서버</text>
+  <image href="icon:simple/springboot#6DB33F" x="404" y="54" width="30" height="30"/><text x="444" y="78" font-size="21" font-weight="700" fill="#191f28">Spring Boot 서버</text>
   <rect x="404" y="98" width="500" height="126" rx="16" fill="#f2f4f6"/>
   <text x="430" y="140" font-size="23" font-weight="700" fill="#191f28">REST API</text>
   <text x="430" y="173" font-size="19" font-weight="500" fill="#4e5968">회의 생성·종료 · 접속 토큰 발급</text>
@@ -20,7 +20,7 @@
   <text x="654" y="432" text-anchor="middle" font-size="17" font-weight="500" fill="#6b7684">입장할 때 두 서버가 서로 통신하지 않음</text>
 
   <rect x="380" y="452" width="548" height="156" rx="22" fill="#ebf2ff"/>
-  <text x="404" y="497" font-size="24" font-weight="700" fill="#1f56c7">LiveKit SFU</text>
+  <image href="icon:simple/livekit#111111" x="404" y="474" width="30" height="30"/><text x="446" y="497" font-size="24" font-weight="700" fill="#1f56c7">LiveKit SFU</text>
   <text x="404" y="532" font-size="20" font-weight="600" fill="#2f6feb">음성 스트림 전달 (WebRTC)</text>
   <text x="404" y="566" font-size="18" font-weight="500" fill="#4e5968">백엔드는 음성 데이터를 다루지 않음</text>
 
@@ -32,6 +32,6 @@
   <g font-size="18" font-weight="600" text-anchor="middle">
     <text x="312" y="146" fill="#6b7684">HTTPS</text>
     <text x="312" y="284" fill="#6b7684">WebSocket</text>
-    <text x="306" y="512" fill="#2f6feb">WebRTC</text>
+    <image href="icon:simple/webrtc#333333" x="254" y="494" width="22" height="22"/><text x="320" y="512" fill="#2f6feb">WebRTC</text>
   </g>
 </svg>

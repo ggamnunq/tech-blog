@@ -9,8 +9,12 @@ const posts = defineCollection({
 		z
 			.object({
 				title: z.string(),
+				// 검색 결과·공유용 제목 (화면의 제목과 다르게 하고 싶을 때만). 없으면 title 사용
+				seoTitle: z.string().optional(),
 				description: z.string(),
 				pubDate: z.coerce.date(),
+				// 실제로 작업한 시기 (게시일과 별개). 예: "2026.04", "2026.03 ~ 04"
+				workPeriod: z.string().optional(),
 				updatedDate: z.coerce.date().optional(),
 				// 여러 개면 categories: [troubleshooting, backend] — 첫 번째가 대표 카테고리
 				categories: z.array(z.enum(CATEGORY_SLUGS)).min(1).optional(),
