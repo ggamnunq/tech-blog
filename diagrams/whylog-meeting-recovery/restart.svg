@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" font-family="'Pretendard Variable', Pretendard, sans-serif">
+  <rect width="960" height="500" fill="#f2f4f6"/>
+  <!-- 열 제목 -->
+  <g font-size="22" font-weight="700" fill="#191f28">
+    <image href="icon:devicon/mysql/mysql-original" x="196" y="30" width="30" height="30"/><text x="234" y="54">DB</text>
+    <image href="icon:simple/springboot#6DB33F" x="436" y="30" width="28" height="28"/><text x="472" y="54">서버 메모리</text>
+    <image href="icon:simple/livekit#111111" x="716" y="31" width="26" height="26"/><text x="750" y="54">LiveKit</text>
+  </g>
+  <!-- 행 제목 -->
+  <g font-size="18" font-weight="700" fill="#8b95a1" text-anchor="middle">
+    <text x="78" y="172">재시작 전</text>
+    <text x="78" y="372">재시작 후</text>
+  </g>
+  <g text-anchor="middle">
+    <!-- 재시작 전 -->
+    <rect x="150" y="90" width="250" height="150" rx="18" fill="#fff"/>
+    <text x="275" y="140" font-size="20" font-weight="700" fill="#191f28">회의 행</text>
+    <text x="275" y="172" font-size="17" font-weight="500" fill="#6b7684">종료 시각 비어 있음</text>
+    <text x="275" y="200" font-size="17" font-weight="500" fill="#6b7684">→ 진행 중</text>
+
+    <rect x="420" y="90" width="250" height="150" rx="18" fill="#fff"/>
+    <text x="545" y="140" font-size="20" font-weight="700" fill="#191f28">회의방</text>
+    <text x="545" y="172" font-size="17" font-weight="500" fill="#6b7684">참가자 웹소켓 세션</text>
+    <text x="545" y="200" font-size="17" font-weight="500" fill="#6b7684">자막·채팅 전달</text>
+
+    <rect x="690" y="90" width="250" height="150" rx="18" fill="#fff"/>
+    <text x="815" y="140" font-size="20" font-weight="700" fill="#191f28">음성 방</text>
+    <text x="815" y="172" font-size="17" font-weight="500" fill="#6b7684">참가자 음성 연결</text>
+    <text x="815" y="200" font-size="17" font-weight="500" fill="#6b7684">녹음</text>
+
+    <!-- 재시작 후 -->
+    <rect x="150" y="290" width="250" height="150" rx="18" fill="#fdeeee"/>
+    <text x="275" y="340" font-size="20" font-weight="700" fill="#c92a2a">그대로 진행 중</text>
+    <text x="275" y="372" font-size="17" font-weight="500" fill="#c92a2a">끝낼 요청이 오지 않아</text>
+    <text x="275" y="400" font-size="17" font-weight="500" fill="#c92a2a">종료 시각이 계속 빔</text>
+
+    <rect x="420" y="290" width="250" height="150" rx="18" fill="#e5e8eb"/>
+    <text x="545" y="340" font-size="20" font-weight="700" fill="#4e5968">비어 있음</text>
+    <text x="545" y="372" font-size="17" font-weight="500" fill="#6b7684">프로세스와 함께 사라짐</text>
+    <text x="545" y="400" font-size="17" font-weight="500" fill="#6b7684">→ 다시 입장 안 됨</text>
+
+    <rect x="690" y="290" width="250" height="150" rx="18" fill="#fdeeee"/>
+    <text x="815" y="340" font-size="20" font-weight="700" fill="#c92a2a">방이 남아 있음</text>
+    <text x="815" y="372" font-size="17" font-weight="500" fill="#c92a2a">백엔드와 별개 서버라</text>
+    <text x="815" y="400" font-size="17" font-weight="500" fill="#c92a2a">따로 닫아야 함</text>
+  </g>
+  <text x="545" y="478" text-anchor="middle" font-size="16" font-weight="600" fill="#8b95a1">세 곳 중 서버 메모리만 비고, DB와 LiveKit에는 회의가 계속 열려 있다</text>
+</svg>

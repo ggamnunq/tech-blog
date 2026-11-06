@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="430" viewBox="0 0 960 430" font-family="'Pretendard Variable', Pretendard, sans-serif">
+  <rect width="960" height="430" fill="#f2f4f6"/>
+  <g text-anchor="middle">
+    <!-- 종료 훅 -->
+    <rect x="24" y="30" width="290" height="370" rx="20" fill="#fff"/>
+    <image href="icon:lucide/power#4E5968" x="100" y="58" width="28" height="28"/><text x="136" y="81" font-size="22" font-weight="700" fill="#191f28" text-anchor="start">종료 훅</text>
+    <text x="169" y="116" font-size="16" font-weight="500" fill="#8b95a1">서버가 꺼질 때 정리</text>
+    <rect x="48" y="138" width="242" height="96" rx="14" fill="#f2f4f6"/>
+    <text x="169" y="170" font-size="16" font-weight="700" fill="#4e5968">실행되는 때</text>
+    <text x="169" y="198" font-size="17" font-weight="500" fill="#4e5968">정상 종료 신호를</text>
+    <text x="169" y="222" font-size="17" font-weight="500" fill="#4e5968">받았을 때만</text>
+    <rect x="48" y="250" width="242" height="126" rx="14" fill="#fdeeee"/>
+    <text x="169" y="282" font-size="16" font-weight="700" fill="#c92a2a">놓치는 경우</text>
+    <text x="169" y="310" font-size="17" font-weight="500" fill="#c92a2a">강제 종료, 메모리 부족,</text>
+    <text x="169" y="334" font-size="17" font-weight="500" fill="#c92a2a">장비 장애처럼</text>
+    <text x="169" y="358" font-size="17" font-weight="500" fill="#c92a2a">갑자기 멈출 때</text>
+
+    <!-- 주기적 정리 -->
+    <rect x="335" y="30" width="290" height="370" rx="20" fill="#fff"/>
+    <image href="icon:lucide/timer#4E5968" x="393" y="58" width="28" height="28"/><text x="429" y="81" font-size="22" font-weight="700" fill="#191f28" text-anchor="start">주기적 정리</text>
+    <text x="480" y="116" font-size="16" font-weight="500" fill="#8b95a1">스케줄러가 일정 간격으로 정리</text>
+    <rect x="359" y="138" width="242" height="96" rx="14" fill="#f2f4f6"/>
+    <text x="480" y="170" font-size="16" font-weight="700" fill="#4e5968">실행되는 때</text>
+    <text x="480" y="198" font-size="17" font-weight="500" fill="#4e5968">서버가 떠 있는 동안</text>
+    <text x="480" y="222" font-size="17" font-weight="500" fill="#4e5968">정해 둔 주기마다</text>
+    <rect x="359" y="250" width="242" height="126" rx="14" fill="#fdeeee"/>
+    <text x="480" y="282" font-size="16" font-weight="700" fill="#c92a2a">어려운 점</text>
+    <text x="480" y="310" font-size="17" font-weight="500" fill="#c92a2a">긴 회의와 버려진 회의를</text>
+    <text x="480" y="334" font-size="17" font-weight="500" fill="#c92a2a">가를 기준이 따로 필요,</text>
+    <text x="480" y="358" font-size="17" font-weight="500" fill="#c92a2a">다음 주기까지는 남음</text>
+
+    <!-- 시작 시 정리 (선택) -->
+    <rect x="646" y="30" width="290" height="370" rx="20" fill="#ebf2ff"/>
+    <image href="icon:simple/springboot#6DB33F" x="696" y="58" width="28" height="28"/><text x="732" y="81" font-size="22" font-weight="700" fill="#1f56c7" text-anchor="start">시작할 때 정리</text>
+    <text x="791" y="116" font-size="16" font-weight="600" fill="#2f6feb">선택한 방법</text>
+    <rect x="670" y="138" width="242" height="96" rx="14" fill="#fff"/>
+    <text x="791" y="170" font-size="16" font-weight="700" fill="#4e5968">실행되는 때</text>
+    <text x="791" y="198" font-size="17" font-weight="500" fill="#4e5968">서버가 다시 뜰 때마다</text>
+    <text x="791" y="222" font-size="17" font-weight="500" fill="#4e5968">(어떻게 멈췄든)</text>
+    <rect x="670" y="250" width="242" height="126" rx="14" fill="#fff"/>
+    <text x="791" y="282" font-size="16" font-weight="700" fill="#1f56c7">판단 기준</text>
+    <text x="791" y="310" font-size="17" font-weight="500" fill="#4e5968">막 뜬 서버는 메모리가</text>
+    <text x="791" y="334" font-size="17" font-weight="500" fill="#4e5968">비어 있으니, 진행 중인</text>
+    <text x="791" y="358" font-size="17" font-weight="500" fill="#4e5968">회의는 모두 끊긴 회의</text>
+  </g>
+</svg>
