@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="820" viewBox="0 0 960 820" font-family="'Pretendard Variable', Pretendard, sans-serif">
+<defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker><marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f6feb"/></marker><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ef5350"/></marker></defs>
+<rect width="960" height="820" fill="#f2f4f6"/>
+<image href="icon:simple/spring#6DB33F" x="30" y="22" width="26" height="26"/>
+<text x="66" y="44" font-size="21" font-weight="700" fill="#8b95a1" text-anchor="start">Job</text>
+<text x="108" y="44" font-size="21" font-weight="700" fill="#191f28" text-anchor="start">merchantSyncJob</text>
+<rect x="30" y="66" width="210" height="100" rx="18" fill="#fff"/>
+<text x="135" y="96" font-size="14" font-weight="700" fill="#8b95a1" text-anchor="middle">Tasklet Step</text>
+<text x="135" y="126" font-size="20" font-weight="700" fill="#191f28" text-anchor="middle">관광지 동기화</text>
+<text x="135" y="152" font-size="14" font-weight="500" fill="#4e5968" text-anchor="middle">tourSyncStep</text>
+<path d="M240 116 L258 116" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+<rect x="260" y="66" width="210" height="100" rx="18" fill="#2f6feb"/>
+<text x="365" y="96" font-size="14" font-weight="700" fill="#dbe7ff" text-anchor="middle">Partition Step</text>
+<text x="365" y="126" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">가맹점 동기화</text>
+<text x="365" y="152" font-size="14" font-weight="500" fill="#dbe7ff" text-anchor="middle">merchantPageSyncStep</text>
+<path d="M470 116 L488 116" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+<rect x="490" y="66" width="210" height="100" rx="18" fill="#fff"/>
+<text x="595" y="96" font-size="14" font-weight="700" fill="#8b95a1" text-anchor="middle">Tasklet Step</text>
+<text x="595" y="126" font-size="20" font-weight="700" fill="#191f28" text-anchor="middle">코스 생성</text>
+<text x="595" y="152" font-size="14" font-weight="500" fill="#4e5968" text-anchor="middle">courseGenerationStep</text>
+<path d="M700 116 L718 116" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+<rect x="720" y="66" width="210" height="100" rx="18" fill="#fff"/>
+<text x="825" y="96" font-size="14" font-weight="700" fill="#8b95a1" text-anchor="middle">Tasklet Step</text>
+<text x="825" y="126" font-size="20" font-weight="700" fill="#191f28" text-anchor="middle">캐시 비우기</text>
+<text x="825" y="152" font-size="14" font-weight="500" fill="#4e5968" text-anchor="middle">cacheEvictStep</text>
+<path d="M365 166 L365 196" stroke="#2f6feb" stroke-width="3"/>
+<rect x="30" y="196" width="900" height="420" rx="20" fill="#ebf2ff"/>
+<text x="60" y="232" font-size="17" font-weight="700" fill="#1f56c7" text-anchor="start">매니저 Step이 일을 파티션으로 나누고, 파티션마다 워커 Step을 실행</text>
+<rect x="60" y="256" width="250" height="140" rx="16" fill="#fff"/>
+<text x="185" y="292" font-size="19" font-weight="700" fill="#191f28" text-anchor="middle">Partitioner</text>
+<text x="185" y="324" font-size="16" font-weight="500" fill="#4e5968" text-anchor="middle">18개 시군 1페이지를</text>
+<text x="185" y="348" font-size="16" font-weight="500" fill="#4e5968" text-anchor="middle">먼저 받아 페이지 수 확인</text>
+<text x="185" y="376" font-size="15" font-weight="700" fill="#2f6feb" text-anchor="middle">파티션 최대 243개</text>
+<path d="M310 326 L346 326" fill="none" stroke="#2f6feb" stroke-width="3" marker-end="url(#ab)"/>
+<text x="350" y="272" font-size="15" font-weight="700" fill="#8b95a1" text-anchor="start">파티션마다 ExecutionContext</text>
+<rect x="350" y="284" width="176" height="112" rx="14" fill="#fff"/>
+<text x="438" y="316" font-size="15" font-weight="700" fill="#191f28" text-anchor="middle">region-51110-page1</text>
+<text x="438" y="346" font-size="14" font-weight="500" fill="#4e5968" text-anchor="middle">code=51110, page=1</text>
+<text x="438" y="370" font-size="14" font-weight="500" fill="#4e5968" text-anchor="middle">page1DataJson=…</text>
+<rect x="538" y="284" width="176" height="112" rx="14" fill="#fff"/>
+<text x="626" y="316" font-size="15" font-weight="700" fill="#191f28" text-anchor="middle">region-51110-page2</text>
+<text x="626" y="346" font-size="14" font-weight="500" fill="#4e5968" text-anchor="middle">code=51110, page=2</text>
+<rect x="726" y="284" width="176" height="112" rx="14" fill="#fff"/>
+<text x="814" y="316" font-size="15" font-weight="700" fill="#191f28" text-anchor="middle">…</text>
+<text x="814" y="346" font-size="14" font-weight="500" fill="#4e5968" text-anchor="middle">(지역, 페이지)마다 하나</text>
+<path d="M480 396 L480 426" fill="none" stroke="#2f6feb" stroke-width="3" marker-end="url(#ab)"/>
+<text x="480" y="452" font-size="16" font-weight="700" fill="#1f56c7" text-anchor="middle">TaskExecutorPartitionHandler — 스레드 8개가 파티션을 나눠 실행</text>
+<rect x="60" y="470" width="270" height="120" rx="16" fill="#fff"/>
+<text x="195" y="500" font-size="14" font-weight="700" fill="#8b95a1" text-anchor="middle">워커 Step</text>
+<text x="195" y="524" font-size="16" font-weight="700" fill="#191f28" text-anchor="middle">region-51110-page1</text>
+<text x="195" y="554" font-size="13" font-weight="600" fill="#4e5968" text-anchor="middle">chunk(1): Reader → Processor → Writer</text>
+<text x="195" y="576" font-size="13" font-weight="500" fill="#8b95a1" text-anchor="middle">faultTolerant · retry 2 · skip 3</text>
+<rect x="345" y="470" width="270" height="120" rx="16" fill="#fff"/>
+<text x="480" y="500" font-size="14" font-weight="700" fill="#8b95a1" text-anchor="middle">워커 Step</text>
+<text x="480" y="524" font-size="16" font-weight="700" fill="#191f28" text-anchor="middle">region-51110-page2</text>
+<text x="480" y="554" font-size="13" font-weight="600" fill="#4e5968" text-anchor="middle">chunk(1): Reader → Processor → Writer</text>
+<text x="480" y="576" font-size="13" font-weight="500" fill="#8b95a1" text-anchor="middle">faultTolerant · retry 2 · skip 3</text>
+<rect x="630" y="470" width="270" height="120" rx="16" fill="#fff"/>
+<text x="765" y="500" font-size="14" font-weight="700" fill="#8b95a1" text-anchor="middle">워커 Step</text>
+<text x="765" y="524" font-size="16" font-weight="700" fill="#191f28" text-anchor="middle">…</text>
+<text x="765" y="554" font-size="13" font-weight="600" fill="#4e5968" text-anchor="middle">chunk(1): Reader → Processor → Writer</text>
+<text x="765" y="576" font-size="13" font-weight="500" fill="#8b95a1" text-anchor="middle">faultTolerant · retry 2 · skip 3</text>
+<path d="M480 616 L480 662" fill="none" stroke="#b0b8c1" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#ag)"/>
+<text x="496" y="646" font-size="15" font-weight="600" fill="#4e5968" text-anchor="start">Job·Step·파티션이 시작·완료·실패할 때마다 기록</text>
+<rect x="30" y="666" width="900" height="124" rx="20" fill="#fff"/>
+<image href="icon:simple/postgresql#4169E1" x="60" y="690" width="28" height="28"/>
+<text x="100" y="712" font-size="20" font-weight="700" fill="#191f28" text-anchor="start">JobRepository</text>
+<text x="252" y="712" font-size="15" font-weight="500" fill="#8b95a1" text-anchor="start">PostgreSQL에 실행 기록을 남기는 저장소 (Flyway V30로 테이블 생성)</text>
+<rect x="60" y="732" width="230" height="38" rx="10" fill="#f2f4f6"/>
+<text x="175.0" y="757" font-size="14" font-weight="700" fill="#4e5968" text-anchor="middle">BATCH_JOB_EXECUTION</text>
+<rect x="305" y="732" width="240" height="38" rx="10" fill="#f2f4f6"/>
+<text x="425.0" y="757" font-size="14" font-weight="700" fill="#4e5968" text-anchor="middle">BATCH_STEP_EXECUTION</text>
+<rect x="560" y="732" width="320" height="38" rx="10" fill="#f2f4f6"/>
+<text x="720.0" y="757" font-size="14" font-weight="700" fill="#4e5968" text-anchor="middle">BATCH_STEP_EXECUTION_CONTEXT</text>
+</svg>

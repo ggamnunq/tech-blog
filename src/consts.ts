@@ -37,6 +37,11 @@ export const SERIES = [
 		title: 'WhyLog 실시간 음성 회의 구현기',
 		description: '다자간 음성 회의를 만들며 설계하고 부딪힌 문제를 정리한 시리즈',
 	},
+	{
+		slug: 'gwpass-sync',
+		title: '강원환급패스 공공데이터 동기화 개선기',
+		description: '가맹점 10만여 건을 받아 오는 동기화를 빠르고, 틀리지 않고, 멈춰도 이어서 끝나게 고친 기록',
+	},
 ] as const;
 
 export type SeriesSlug = (typeof SERIES)[number]['slug'];

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" font-family="'Pretendard Variable', Pretendard, sans-serif">
+<defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker><marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f6feb"/></marker><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ef5350"/></marker></defs>
+<rect width="960" height="520" fill="#f2f4f6"/>
+<rect x="30" y="26" width="900" height="284" rx="20" fill="#fff"/>
+<text x="60" y="64" font-size="19" font-weight="700" fill="#191f28" text-anchor="start">같은 JobInstance (merchantSyncJob)</text>
+<rect x="60" y="84" width="410" height="202" rx="16" fill="#f2f4f6"/>
+<text x="80" y="116" font-size="16" font-weight="700" fill="#191f28" text-anchor="start">JobExecution 1 · 첫 실행</text>
+<text x="450" y="116" font-size="14" font-weight="700" fill="#c92a2a" text-anchor="end">FAILED</text>
+<text x="80" y="146" font-size="13" font-weight="700" fill="#8b95a1" text-anchor="start">BATCH_STEP_EXECUTION</text>
+<text x="80" y="174" font-size="15" font-weight="600" fill="#191f28" text-anchor="start">tourSyncStep</text>
+<text x="450" y="174" font-size="14" font-weight="700" fill="#1f56c7" text-anchor="end">COMPLETED</text>
+<text x="80" y="202" font-size="15" font-weight="600" fill="#191f28" text-anchor="start">merchantPageSyncStep</text>
+<text x="450" y="202" font-size="14" font-weight="700" fill="#c92a2a" text-anchor="end">FAILED</text>
+<text x="80" y="230" font-size="15" font-weight="600" fill="#191f28" text-anchor="start">워커 Step 일부</text>
+<text x="450" y="230" font-size="14" font-weight="700" fill="#1f56c7" text-anchor="end">COMPLETED</text>
+<text x="80" y="258" font-size="15" font-weight="600" fill="#191f28" text-anchor="start">courseGenerationStep</text>
+<text x="450" y="258" font-size="14" font-weight="700" fill="#8b95a1" text-anchor="end">기록 없음</text>
+<rect x="490" y="84" width="410" height="202" rx="16" fill="#ebf2ff"/>
+<text x="510" y="116" font-size="16" font-weight="700" fill="#1f56c7" text-anchor="start">JobExecution 2 · 재시작</text>
+<text x="880" y="116" font-size="14" font-weight="700" fill="#1f56c7" text-anchor="end">COMPLETED</text>
+<text x="510" y="146" font-size="13" font-weight="700" fill="#8b95a1" text-anchor="start">BATCH_STEP_EXECUTION</text>
+<text x="510" y="174" font-size="15" font-weight="600" fill="#191f28" text-anchor="start">tourSyncStep</text>
+<text x="880" y="174" font-size="14" font-weight="700" fill="#8b95a1" text-anchor="end">기록 없음 (건너뜀)</text>
+<text x="510" y="202" font-size="15" font-weight="600" fill="#191f28" text-anchor="start">merchantPageSyncStep</text>
+<text x="880" y="202" font-size="14" font-weight="700" fill="#1f56c7" text-anchor="end">COMPLETED</text>
+<text x="510" y="230" font-size="15" font-weight="600" fill="#191f28" text-anchor="start">courseGenerationStep</text>
+<text x="880" y="230" font-size="14" font-weight="700" fill="#1f56c7" text-anchor="end">COMPLETED</text>
+<text x="510" y="258" font-size="15" font-weight="600" fill="#191f28" text-anchor="start">cacheEvictStep</text>
+<text x="880" y="258" font-size="14" font-weight="700" fill="#1f56c7" text-anchor="end">COMPLETED</text>
+<text x="480" y="348" font-size="16" font-weight="700" fill="#8b95a1" text-anchor="middle">결과 집계 리스너가 tourSyncStep의 결과를 어디서 찾나</text>
+<rect x="30" y="368" width="440" height="128" rx="18" fill="#fdeeee"/>
+<text x="250" y="404" font-size="17" font-weight="700" fill="#c92a2a" text-anchor="middle">바꾸기 전 · JobExecution 2에서만</text>
+<text x="250" y="436" font-size="16" font-weight="500" fill="#c92a2a" text-anchor="middle">tourSyncStep 기록이 없음</text>
+<text x="250" y="472" font-size="17" font-weight="700" fill="#c92a2a" text-anchor="middle">→ 관광지 단계를 실패로 집계</text>
+<rect x="490" y="368" width="440" height="128" rx="18" fill="#2f6feb"/>
+<text x="710" y="404" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">바꾼 후 · JobInstance의 모든 실행에서</text>
+<text x="710" y="436" font-size="16" font-weight="500" fill="#dbe7ff" text-anchor="middle">JobExecution 1의 COMPLETED 기록을 찾음</text>
+<text x="710" y="472" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">→ 성공으로 집계</text>
+</svg>

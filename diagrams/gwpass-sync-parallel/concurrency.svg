@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="320" viewBox="0 0 960 320" font-family="'Pretendard Variable', Pretendard, sans-serif">
+<defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker><marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f6feb"/></marker><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ef5350"/></marker></defs>
+<rect width="960" height="320" fill="#f2f4f6"/>
+<text x="40" y="52" font-size="21" font-weight="700" fill="#191f28" text-anchor="start">가맹점 단계 소요 시간</text>
+<text x="40" y="82" font-size="17" font-weight="500" fill="#8b95a1" text-anchor="start">같은 RDS 테스트 DB에서 실제 동기화를 한 번씩 실행</text>
+<text x="172" y="146" font-size="18" font-weight="600" fill="#4e5968" text-anchor="end">동시 처리 4</text>
+<rect x="190" y="116" width="600" height="44" rx="10" fill="#d1d6db"/>
+<text x="804" y="146" font-size="19" font-weight="700" fill="#4e5968" text-anchor="start">17분 13초</text>
+<text x="172" y="208" font-size="18" font-weight="700" fill="#1f56c7" text-anchor="end">동시 처리 8</text>
+<rect x="190" y="178" width="357" height="44" rx="10" fill="#2f6feb"/>
+<text x="561" y="208" font-size="19" font-weight="700" fill="#1f56c7" text-anchor="start">10분 15초</text>
+<text x="172" y="270" font-size="18" font-weight="600" fill="#4e5968" text-anchor="end">동시 처리 12</text>
+<rect x="190" y="240" width="379" height="44" rx="10" fill="#d1d6db"/>
+<text x="583" y="270" font-size="19" font-weight="700" fill="#4e5968" text-anchor="start">10분 53초</text>
+</svg>

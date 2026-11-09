@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="470" viewBox="0 0 960 470" font-family="'Pretendard Variable', Pretendard, sans-serif">
+<defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker><marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f6feb"/></marker><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ef5350"/></marker></defs>
+<rect width="960" height="470" fill="#f2f4f6"/>
+<rect x="30" y="30" width="300" height="330" rx="18" fill="#fff"/>
+<text x="50" y="64" font-size="17" font-weight="700" fill="#191f28" text-anchor="start">JobExecution 1</text>
+<text x="50" y="88" font-size="14" font-weight="600" fill="#8b95a1" text-anchor="start">워커 StepExecution</text>
+<text x="50" y="126" font-size="14" font-weight="600" fill="#191f28" text-anchor="start">…region-51110-page1</text>
+<text x="310" y="126" font-size="13" font-weight="700" fill="#1f56c7" text-anchor="end">COMPLETED</text>
+<text x="50" y="160" font-size="14" font-weight="600" fill="#191f28" text-anchor="start">…region-51110-page2</text>
+<text x="310" y="160" font-size="13" font-weight="700" fill="#1f56c7" text-anchor="end">COMPLETED</text>
+<text x="50" y="194" font-size="14" font-weight="600" fill="#8b95a1" text-anchor="start">…</text>
+<text x="310" y="194" font-size="13" font-weight="700" fill="#8b95a1" text-anchor="end"></text>
+<text x="50" y="228" font-size="14" font-weight="600" fill="#191f28" text-anchor="start">…region-51130-page5</text>
+<text x="310" y="228" font-size="13" font-weight="700" fill="#c92a2a" text-anchor="end">FAILED</text>
+<text x="50" y="262" font-size="14" font-weight="600" fill="#191f28" text-anchor="start">…region-51130-page6</text>
+<text x="310" y="262" font-size="13" font-weight="700" fill="#8b95a1" text-anchor="end">기록 없음</text>
+<text x="180" y="320" font-size="15" font-weight="700" fill="#1f56c7" text-anchor="middle">COMPLETED만 골라</text>
+<text x="180" y="342" font-size="14" font-weight="600" fill="#4e5968" text-anchor="middle">"지역코드:페이지"로 모음</text>
+<path d="M330 195 L366 195" fill="none" stroke="#2f6feb" stroke-width="3" marker-end="url(#ab)"/>
+<rect x="370" y="120" width="240" height="150" rx="18" fill="#2f6feb"/>
+<text x="490" y="162" font-size="19" font-weight="700" fill="#fff" text-anchor="middle">Partitioner</text>
+<text x="490" y="196" font-size="15" font-weight="500" fill="#dbe7ff" text-anchor="middle">(지역, 페이지)를 만들 때</text>
+<text x="490" y="220" font-size="15" font-weight="500" fill="#dbe7ff" text-anchor="middle">모은 집합에 있으면</text>
+<text x="490" y="244" font-size="15" font-weight="700" fill="#fff" text-anchor="middle">파티션에서 뺌</text>
+<path d="M610 195 L626 195" fill="none" stroke="#2f6feb" stroke-width="3" marker-end="url(#ab)"/>
+<rect x="630" y="30" width="300" height="330" rx="18" fill="#ebf2ff"/>
+<text x="650" y="64" font-size="17" font-weight="700" fill="#1f56c7" text-anchor="start">JobExecution 2</text>
+<text x="650" y="88" font-size="14" font-weight="600" fill="#2f6feb" text-anchor="start">새로 만드는 파티션</text>
+<text x="650" y="126" font-size="14" font-weight="600" fill="#8b95a1" text-anchor="start">region-51110-page1</text>
+<path d="M650 121 L780 121" stroke="#8b95a1" stroke-width="1.5"/>
+<text x="910" y="126" font-size="13" font-weight="700" fill="#8b95a1" text-anchor="end">뺌</text>
+<text x="650" y="160" font-size="14" font-weight="600" fill="#8b95a1" text-anchor="start">region-51110-page2</text>
+<path d="M650 155 L780 155" stroke="#8b95a1" stroke-width="1.5"/>
+<text x="910" y="160" font-size="13" font-weight="700" fill="#8b95a1" text-anchor="end">뺌</text>
+<text x="650" y="194" font-size="14" font-weight="600" fill="#8b95a1" text-anchor="start">…</text>
+<text x="910" y="194" font-size="13" font-weight="700" fill="#8b95a1" text-anchor="end"></text>
+<text x="650" y="228" font-size="14" font-weight="600" fill="#191f28" text-anchor="start">region-51130-page5</text>
+<text x="910" y="228" font-size="13" font-weight="700" fill="#1f56c7" text-anchor="end">다시 처리</text>
+<text x="650" y="262" font-size="14" font-weight="600" fill="#191f28" text-anchor="start">region-51130-page6</text>
+<text x="910" y="262" font-size="13" font-weight="700" fill="#1f56c7" text-anchor="end">처리</text>
+<text x="780" y="320" font-size="15" font-weight="700" fill="#1f56c7" text-anchor="middle">끝나지 않은 것만</text>
+<text x="780" y="342" font-size="14" font-weight="600" fill="#4e5968" text-anchor="middle">워커 Step으로 실행</text>
+<rect x="30" y="386" width="900" height="60" rx="14" fill="#e5e8eb"/>
+<text x="480" y="423" font-size="16" font-weight="700" fill="#4e5968" text-anchor="middle">이미 받은 페이지는 외부 API를 다시 부르지 않음</text>
+</svg>

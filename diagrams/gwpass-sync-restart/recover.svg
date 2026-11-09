@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="700" viewBox="0 0 960 700" font-family="'Pretendard Variable', Pretendard, sans-serif">
+<defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker><marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f6feb"/></marker><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ef5350"/></marker></defs>
+<rect width="960" height="700" fill="#f2f4f6"/>
+<rect x="30" y="26" width="900" height="56" rx="14" fill="#e5e8eb"/>
+<text x="480" y="61" font-size="16" font-weight="700" fill="#4e5968" text-anchor="middle">전제: 서버가 한 대 → 기동할 때 실행 중으로 남은 기록은 죽은 프로세스의 것</text>
+<rect x="30" y="110" width="520" height="92" rx="16" fill="#fff"/>
+<text x="290" y="150" font-size="18" font-weight="700" fill="#191f28" text-anchor="middle">ApplicationReadyEvent</text>
+<text x="290" y="178" font-size="15" font-weight="500" fill="#4e5968" text-anchor="middle">서버가 다 뜬 시점에 한 번 확인</text>
+<path d="M290 202 L290 222" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+<rect x="30" y="224" width="520" height="92" rx="16" fill="#fff"/>
+<text x="290" y="264" font-size="18" font-weight="700" fill="#191f28" text-anchor="middle">가장 최근 JobExecution이 실행 중 상태인가?</text>
+<text x="290" y="292" font-size="15" font-weight="500" fill="#4e5968" text-anchor="middle">STARTING · STARTED · STOPPING</text>
+<path d="M290 316 L290 336" fill="none" stroke="#2f6feb" stroke-width="3" marker-end="url(#ab)"/>
+<rect x="30" y="338" width="520" height="92" rx="16" fill="#fff"/>
+<text x="290" y="378" font-size="18" font-weight="700" fill="#191f28" text-anchor="middle">실행 중인 StepExecution → FAILED</text>
+<text x="290" y="406" font-size="15" font-weight="500" fill="#4e5968" text-anchor="middle">jobRepository.update(stepExecution)</text>
+<rect x="590" y="338" width="340" height="92" rx="16" fill="#fdeeee"/>
+<text x="612" y="368" font-size="14" font-weight="700" fill="#c92a2a" text-anchor="start">버그 2</text>
+<text x="612" y="394" font-size="14" font-weight="600" fill="#c92a2a" text-anchor="start">재시작할 때 Step 기록이 하나라도</text>
+<text x="612" y="416" font-size="14" font-weight="600" fill="#c92a2a" text-anchor="start">실행 중이면 거부 → Step도 FAILED로</text>
+<path d="M550 384 L588 384" stroke="#f3b4b4" stroke-width="3" stroke-dasharray="5 5"/>
+<path d="M290 430 L290 450" fill="none" stroke="#2f6feb" stroke-width="3" marker-end="url(#ab)"/>
+<rect x="30" y="452" width="520" height="92" rx="16" fill="#fff"/>
+<text x="290" y="492" font-size="18" font-weight="700" fill="#191f28" text-anchor="middle">JobExecution → FAILED</text>
+<text x="290" y="520" font-size="15" font-weight="500" fill="#4e5968" text-anchor="middle">jobRepository.update(jobExecution)</text>
+<rect x="590" y="452" width="340" height="92" rx="16" fill="#fdeeee"/>
+<text x="612" y="482" font-size="14" font-weight="700" fill="#c92a2a" text-anchor="start">버그 1</text>
+<text x="612" y="508" font-size="14" font-weight="600" fill="#c92a2a" text-anchor="start">abandon()은 실행 중인 기록을 받지 않음</text>
+<text x="612" y="530" font-size="14" font-weight="600" fill="#c92a2a" text-anchor="start">→ JobRepository로 직접 FAILED</text>
+<path d="M550 498 L588 498" stroke="#f3b4b4" stroke-width="3" stroke-dasharray="5 5"/>
+<path d="M290 544 L290 564" fill="none" stroke="#2f6feb" stroke-width="3" marker-end="url(#ab)"/>
+<rect x="30" y="566" width="520" height="92" rx="16" fill="#2f6feb"/>
+<text x="290" y="606" font-size="18" font-weight="700" fill="#fff" text-anchor="middle">jobOperator.restart()</text>
+<text x="290" y="634" font-size="15" font-weight="500" fill="#dbe7ff" text-anchor="middle">같은 JobInstance에 JobExecution 2 생성</text>
+<rect x="590" y="566" width="340" height="92" rx="16" fill="#fdeeee"/>
+<text x="612" y="596" font-size="14" font-weight="700" fill="#c92a2a" text-anchor="start">버그 3</text>
+<text x="612" y="622" font-size="14" font-weight="600" fill="#c92a2a" text-anchor="start">재시작한 실행엔 끝난 Step 기록이 없음</text>
+<text x="612" y="644" font-size="14" font-weight="600" fill="#c92a2a" text-anchor="start">→ 집계는 JobInstance의 모든 실행에서</text>
+<path d="M550 612 L588 612" stroke="#f3b4b4" stroke-width="3" stroke-dasharray="5 5"/>
+</svg>

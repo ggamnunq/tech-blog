@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="680" viewBox="0 0 960 680" font-family="'Pretendard Variable', Pretendard, sans-serif">
+<defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker><marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f6feb"/></marker><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ef5350"/></marker></defs>
+<rect width="960" height="680" fill="#f2f4f6"/>
+<text x="30" y="40" font-size="16" font-weight="700" fill="#8b95a1" text-anchor="start">워커 Step 하나 · chunk(1) — 페이지 하나가 아이템 하나</text>
+<rect x="30" y="58" width="280" height="90" rx="18" fill="#fff"/>
+<text x="170" y="96" font-size="19" font-weight="700" fill="#191f28" text-anchor="middle">ItemReader</text>
+<text x="170" y="126" font-size="16" font-weight="500" fill="#4e5968" text-anchor="middle">API로 페이지 받기</text>
+<path d="M310 103 L338 103" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+<rect x="340" y="58" width="280" height="90" rx="18" fill="#fff"/>
+<text x="480" y="96" font-size="19" font-weight="700" fill="#191f28" text-anchor="middle">ItemProcessor</text>
+<text x="480" y="126" font-size="16" font-weight="500" fill="#4e5968" text-anchor="middle">X 조회: 없음 → insert</text>
+<path d="M620 103 L648 103" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+<rect x="650" y="58" width="280" height="90" rx="18" fill="#2f6feb"/>
+<text x="790" y="96" font-size="19" font-weight="700" fill="#fff" text-anchor="middle">ItemWriter</text>
+<text x="790" y="126" font-size="16" font-weight="500" fill="#dbe7ff" text-anchor="middle">판단대로 저장</text>
+<path d="M790 148 L790 188" stroke="#2f6feb" stroke-width="3"/>
+<rect x="30" y="188" width="900" height="360" rx="20" fill="#ebf2ff"/>
+<text x="60" y="226" font-size="17" font-weight="700" fill="#1f56c7" text-anchor="start">ItemWriter 안의 재시도 — 최대 3번, 시도마다 새 트랜잭션(REQUIRES_NEW)</text>
+<text x="250" y="266" font-size="16" font-weight="700" fill="#4e5968" text-anchor="middle">1번째: Processor 판단 그대로</text>
+<rect x="60" y="282" width="380" height="80" rx="14" fill="#fff"/>
+<text x="250" y="316" font-size="18" font-weight="700" fill="#191f28" text-anchor="middle">X insert</text>
+<text x="250" y="342" font-size="14" font-weight="500" fill="#8b95a1" text-anchor="middle">Processor가 볼 땐 X가 없었음</text>
+<path d="M250 362 L250 400" fill="none" stroke="#ef5350" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="60" y="404" width="380" height="110" rx="14" fill="#fdeeee"/>
+<text x="250" y="444" font-size="19" font-weight="700" fill="#c92a2a" text-anchor="middle">충돌</text>
+<text x="250" y="472" font-size="15" font-weight="500" fill="#c92a2a" text-anchor="middle">그 사이 다른 스레드가 X를 먼저 넣음</text>
+<text x="250" y="496" font-size="15" font-weight="700" fill="#c92a2a" text-anchor="middle">같은 판단으로 다시 하면 또 충돌</text>
+<text x="710" y="266" font-size="16" font-weight="700" fill="#1f56c7" text-anchor="middle">2·3번째: 조회·판단부터 새로</text>
+<rect x="520" y="282" width="380" height="80" rx="14" fill="#fff"/>
+<text x="710" y="316" font-size="18" font-weight="700" fill="#1f56c7" text-anchor="middle">X 다시 조회 → 있음 → update</text>
+<text x="710" y="342" font-size="14" font-weight="500" fill="#8b95a1" text-anchor="middle">지금 DB 기준으로 판단</text>
+<path d="M710 362 L710 400" fill="none" stroke="#2f6feb" stroke-width="3" marker-end="url(#ab)"/>
+<rect x="520" y="404" width="380" height="110" rx="14" fill="#2f6feb"/>
+<text x="710" y="466" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">저장 성공</text>
+<path d="M440 459 L480 459 L480 322 L516 322" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+<path d="M480 548 L480 586" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+<rect x="30" y="590" width="900" height="66" rx="16" fill="#e5e8eb"/>
+<text x="480" y="630" font-size="16" font-weight="700" fill="#4e5968" text-anchor="middle">3번 다 실패하면 ApiException → Step의 faultTolerant 설정(retry 2 · skip 3)이 받음</text>
+</svg>

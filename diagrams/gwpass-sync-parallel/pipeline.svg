@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 0 960 300" font-family="'Pretendard Variable', Pretendard, sans-serif">
+<defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker><marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f6feb"/></marker><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ef5350"/></marker></defs>
+<rect width="960" height="300" fill="#f2f4f6"/>
+<rect x="24" y="40" width="276" height="220" rx="20" fill="#fff"/>
+<image href="icon:lucide/landmark#4E5968" x="71.4" y="73" width="28" height="28"/>
+<text x="107.4" y="96" font-size="22" font-weight="700" fill="#191f28" text-anchor="start">관광지 동기화</text>
+<text x="162" y="150" font-size="18" font-weight="500" fill="#4e5968" text-anchor="middle">한국관광공사 TourAPI</text>
+<text x="162" y="180" font-size="18" font-weight="500" fill="#4e5968" text-anchor="middle">강원 관광지 약 4,800건</text>
+<rect x="342" y="40" width="276" height="220" rx="20" fill="#ebf2ff"/>
+<image href="icon:lucide/store#2f6feb" x="389.4" y="73" width="28" height="28"/>
+<text x="425.4" y="96" font-size="22" font-weight="700" fill="#1f56c7" text-anchor="start">가맹점 동기화</text>
+<text x="480" y="150" font-size="18" font-weight="500" fill="#4e5968" text-anchor="middle">한국조폐공사 가맹점 API</text>
+<text x="480" y="180" font-size="18" font-weight="500" fill="#4e5968" text-anchor="middle">18개 시군 약 10만 건</text>
+<text x="480" y="228" font-size="17" font-weight="700" fill="#2f6feb" text-anchor="middle">이 연재의 주제</text>
+<rect x="660" y="40" width="276" height="220" rx="20" fill="#fff"/>
+<image href="icon:lucide/route#4E5968" x="729.4" y="73" width="28" height="28"/>
+<text x="765.4" y="96" font-size="22" font-weight="700" fill="#191f28" text-anchor="start">코스 생성</text>
+<text x="798" y="150" font-size="18" font-weight="500" fill="#4e5968" text-anchor="middle">관광지 + 가맹점을 묶어</text>
+<text x="798" y="180" font-size="18" font-weight="500" fill="#4e5968" text-anchor="middle">가맹점 2곳 이상인 코스</text>
+<path d="M302 150 L338 150" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+<path d="M620 150 L656 150" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+</svg>

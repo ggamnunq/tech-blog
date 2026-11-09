@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" font-family="'Pretendard Variable', Pretendard, sans-serif">
+<defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker><marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f6feb"/></marker><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ef5350"/></marker></defs>
+<rect width="960" height="520" fill="#f2f4f6"/>
+<rect x="330" y="24" width="300" height="76" rx="18" fill="#fff"/>
+<image href="icon:simple/spring#6DB33F" x="378.0" y="47" width="28" height="28"/>
+<text x="414.0" y="70" font-size="21" font-weight="700" fill="#191f28" text-anchor="start">동기화 실행 API</text>
+<path d="M480 100 L480 136" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+<rect x="280" y="140" width="400" height="90" rx="18" fill="#ebf2ff"/>
+<text x="480" y="178" font-size="21" font-weight="700" fill="#1f56c7" text-anchor="middle">SyncPipelineExecutor</text>
+<text x="480" y="208" font-size="17" font-weight="500" fill="#2f6feb" text-anchor="middle">설정값 또는 요청 값으로 구현을 고름</text>
+<path d="M400 230 L400 260 L230 260 L230 290" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+<path d="M560 230 L560 260 L730 260 L730 290" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+<rect x="60" y="294" width="340" height="96" rx="18" fill="#fff"/>
+<text x="230" y="334" font-size="20" font-weight="700" fill="#191f28" text-anchor="middle">THREAD_POOL</text>
+<text x="230" y="364" font-size="17" font-weight="500" fill="#8b95a1" text-anchor="middle">기존 스레드 풀 방식</text>
+<rect x="560" y="294" width="340" height="96" rx="18" fill="#fff"/>
+<text x="730" y="334" font-size="20" font-weight="700" fill="#191f28" text-anchor="middle">BATCH</text>
+<text x="730" y="364" font-size="17" font-weight="500" fill="#8b95a1" text-anchor="middle">Spring Batch 방식 (새로)</text>
+<path d="M230 390 L230 420 L400 420 L400 438" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+<path d="M730 390 L730 420 L560 420 L560 438" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+<rect x="230" y="442" width="500" height="60" rx="16" fill="#e5e8eb"/>
+<text x="480" y="480" font-size="18" font-weight="700" fill="#4e5968" text-anchor="middle">MerchantPageApplier — 페이지 받기·저장 공통 부품</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" font-family="'Pretendard Variable', Pretendard, sans-serif">
+<defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker><marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f6feb"/></marker><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ef5350"/></marker></defs>
+<rect width="960" height="520" fill="#f2f4f6"/>
+<rect x="30" y="30" width="430" height="460" rx="20" fill="#fff"/>
+<text x="60" y="72" font-size="21" font-weight="700" fill="#191f28" text-anchor="start">스레드 풀 방식</text>
+<text x="60" y="102" font-size="16" font-weight="500" fill="#8b95a1" text-anchor="start">진행 상황이 JVM 메모리에만 있음</text>
+<rect x="60" y="128" width="370" height="150" rx="14" fill="#f2f4f6"/>
+<text x="84" y="160" font-size="15" font-weight="700" fill="#8b95a1" text-anchor="start">메모리</text>
+<text x="84" y="194" font-size="17" font-weight="600" fill="#191f28" text-anchor="start">춘천 1페이지</text>
+<text x="406" y="194" font-size="16" font-weight="600" fill="#4e5968" text-anchor="end">완료</text>
+<text x="84" y="226" font-size="17" font-weight="600" fill="#191f28" text-anchor="start">춘천 2페이지</text>
+<text x="406" y="226" font-size="16" font-weight="600" fill="#4e5968" text-anchor="end">완료</text>
+<text x="84" y="258" font-size="17" font-weight="600" fill="#191f28" text-anchor="start">춘천 3페이지</text>
+<text x="406" y="258" font-size="16" font-weight="600" fill="#8b95a1" text-anchor="end">처리 중</text>
+<path d="M245 278 L245 318" fill="none" stroke="#ef5350" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="60" y="322" width="370" height="76" rx="14" fill="#fdeeee"/>
+<text x="245" y="356" font-size="18" font-weight="700" fill="#c92a2a" text-anchor="middle">서버가 죽으면 같이 사라짐</text>
+<text x="245" y="382" font-size="15" font-weight="500" fill="#c92a2a" text-anchor="middle">어디까지 했는지 알 수 없음</text>
+<text x="245" y="446" font-size="17" font-weight="600" fill="#4e5968" text-anchor="middle">다시 실행하면 1페이지부터</text>
+<rect x="500" y="30" width="430" height="460" rx="20" fill="#ebf2ff"/>
+<image href="icon:simple/spring#6DB33F" x="530" y="52" width="26" height="26"/>
+<text x="566" y="72" font-size="21" font-weight="700" fill="#1f56c7" text-anchor="start">Spring Batch 방식</text>
+<text x="530" y="102" font-size="16" font-weight="500" fill="#2f6feb" text-anchor="start">진행 상황을 DB(JobRepository)에 기록</text>
+<rect x="530" y="128" width="370" height="150" rx="14" fill="#fff"/>
+<text x="554" y="160" font-size="15" font-weight="700" fill="#8b95a1" text-anchor="start">BATCH_STEP_EXECUTION</text>
+<text x="876" y="160" font-size="15" font-weight="700" fill="#8b95a1" text-anchor="end">STATUS</text>
+<text x="554" y="194" font-size="16" font-weight="600" fill="#191f28" text-anchor="start">…:region-51110-page1</text>
+<text x="876" y="194" font-size="15" font-weight="700" fill="#1f56c7" text-anchor="end">COMPLETED</text>
+<text x="554" y="226" font-size="16" font-weight="600" fill="#191f28" text-anchor="start">…:region-51110-page2</text>
+<text x="876" y="226" font-size="15" font-weight="700" fill="#1f56c7" text-anchor="end">COMPLETED</text>
+<text x="554" y="258" font-size="16" font-weight="600" fill="#191f28" text-anchor="start">…:region-51110-page3</text>
+<text x="876" y="258" font-size="15" font-weight="700" fill="#8b95a1" text-anchor="end">STARTED</text>
+<path d="M715 278 L715 318" fill="none" stroke="#2f6feb" stroke-width="3" marker-end="url(#ab)"/>
+<rect x="530" y="322" width="370" height="76" rx="14" fill="#2f6feb"/>
+<text x="715" y="356" font-size="18" font-weight="700" fill="#fff" text-anchor="middle">서버가 죽어도 DB에 남음</text>
+<text x="715" y="382" font-size="15" font-weight="500" fill="#dbe7ff" text-anchor="middle">파티션마다 끝났는지 알 수 있음</text>
+<text x="715" y="446" font-size="17" font-weight="600" fill="#1f56c7" text-anchor="middle">다시 실행할 때 끝난 파티션을 가려낼 수 있음</text>
+</svg>
