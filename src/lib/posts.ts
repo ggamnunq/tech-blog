@@ -33,13 +33,6 @@ export async function getHiddenPostIds(): Promise<string[]> {
 }
 
 /** 한국어 기준 분당 약 500자로 읽는 시간 계산 (코드 블록은 절반 가중치) */
-export function readingMinutes(body = ''): number {
-	const code = (body.match(/```[\s\S]*?```/g) ?? []).join('');
-	const text = body.replace(/```[\s\S]*?```/g, '').replace(/[#>*`_\-[\]()!|]/g, '');
-	const chars = text.replace(/\s+/g, '').length + code.replace(/\s+/g, '').length / 2;
-	return Math.max(1, Math.round(chars / 500));
-}
-
 export function formatDate(date: Date): string {
 	const parts = new Intl.DateTimeFormat('ko-KR', {
 		year: 'numeric',

@@ -113,6 +113,87 @@
 	color: var(--text-muted);
 }
 
+.prose p:has(> img) > img + em:last-child,
+.prose p:has(> img) > img + br + em:last-child {
+	/* 캡션을 이미지 바로 다음 줄(빈 줄 없이)에 쓴 경우도 같은 캡션 스타일 */
+	display: block;
+	margin: -1.2em 0 2.4em;
+	font-size: 14px;
+	font-style: normal;
+	text-align: center;
+	color: var(--text-muted);
+}
+
+/* 사진 모음 그리드 — 마크다운에서 <div class="photo-grid"> … </div>로 감쌈 (cols-3: 3열) */
+.prose .photo-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px;
+	margin: 2em 0;
+}
+
+.prose .photo-grid.cols-3 {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* tall: 칸을 세로(3:4)로 — 세로 사진 위주일 때 */
+.prose .photo-grid.tall img {
+	aspect-ratio: 3 / 4;
+}
+
+/* fit: 자르지 않고 칸 안에 전체를 보여 줌 — 그림·스케치·캡처처럼 잘리면 안 되는 것 */
+.prose .photo-grid.fit img {
+	object-fit: contain;
+	background: var(--bg-soft);
+}
+
+/* natural: 원래 비율 그대로(자르지도, 칸을 맞추지도 않음) — 폰 화면 캡처처럼 비율이 같은 것끼리 */
+.prose .photo-grid.natural img {
+	aspect-ratio: auto;
+	height: auto;
+}
+
+.prose .photo-grid.natural {
+	align-items: start;
+}
+
+.prose .photo-grid > p {
+	margin: 0;
+}
+
+.prose .photo-grid img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 1;
+	object-fit: cover;
+	margin: 0;
+}
+
+.prose .photo-grid p > img + em:last-child,
+.prose .photo-grid p > img + br + em:last-child {
+	margin: 6px 0 0;
+	font-size: 13px;
+}
+
+/* 그리드 아래 *기울임 한 줄*은 그리드 전체 캡션 */
+.prose .photo-grid + p > em:only-child {
+	display: block;
+	margin: -1.2em 0 2.4em;
+	font-size: 14px;
+	font-style: normal;
+	text-align: center;
+	color: var(--text-muted);
+}
+
+/* 누르면 크게 보기 */
+.prose img {
+	cursor: zoom-in;
+}
+
+.prose a img {
+	cursor: pointer;
+}
+
 .prose .table-wrap {
 	margin: 1.8em 0;
 	overflow-x: auto;
@@ -224,6 +305,10 @@
 }
 
 @media (max-width: 640px) {
+	.prose .photo-grid {
+		gap: 8px;
+	}
+
 	.prose {
 		font-size: 16px;
 	}

@@ -6,7 +6,7 @@ import SeriesBox from '../../components/SeriesBox.astro';
 import Toc from '../../components/Toc.astro';
 import { categoryLabel, findSeries, SITE } from '../../consts';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { formatDate, getPosts, isoDate, isoDateKst, type Post, readingMinutes, seriesPosts, tagSlug, withBase } from '../../lib/posts';
+import { formatDate, getPosts, isoDate, isoDateKst, type Post, seriesPosts, tagSlug, withBase } from '../../lib/posts';
 
 export async function getStaticPaths() {
 	const posts = await getPosts();
@@ -84,7 +84,7 @@ const jsonLd = {
 					<div>
 						<p class="meta-author">{SITE.author}</p>
 						<p class="meta-sub">
-							<time datetime={isoDate(pubDate)}>{formatDate(pubDate)}</time>
+							<span>게시 <time datetime={isoDate(pubDate)}>{formatDate(pubDate)}</time></span>
 							{
 								updatedDate && (
 									<>
@@ -93,17 +93,16 @@ const jsonLd = {
 									</>
 								)
 							}
-							<span aria-hidden="true">·</span>
-							<span>{readingMinutes(post.body)}분 읽기</span>
+							{
+								workPeriod && (
+									<>
+										<span aria-hidden="true">·</span>
+										<span title="실제로 작업한 시기">작업 {workPeriod}</span>
+									</>
+								)
+							}
 						</p>
 					</div>
-					{
-						workPeriod && (
-							<span class="work-period" title="실제로 작업한 시기">
-								작업 시기 {workPeriod}
-							</span>
-						)
-					}
 				</div>
 			</header>
 
@@ -179,6 +178,17 @@ const jsonLd = {
 			<Toc headings={headings} />
 		</aside>
 	</div>
+
+	<dialog class="lightbox" aria-label="이미지 크게 보기">
+		<figure class="lightbox-figure">
+			<img class="lightbox-img" alt="" />
+			<figcaption class="lightbox-caption"></figcaption>
+		</figure>
+		<span class="lightbox-count" aria-live="polite"></span>
+		<button type="button" class="lightbox-btn lightbox-close" aria-label="닫기">✕</button>
+		<button type="button" class="lightbox-btn lightbox-prev" aria-label="이전 이미지">‹</button>
+		<button type="button" class="lightbox-btn lightbox-next" aria-label="다음 이미지">›</button>
+	</dialog>
 </BaseLayout>
 
 <style>
@@ -240,16 +250,6 @@ const jsonLd = {
 		flex: none;
 	}
 
-	.work-period {
-		margin-left: auto;
-		padding: 6px 12px;
-		border-radius: 999px;
-		font-size: 13px;
-		font-weight: 600;
-		color: var(--text-sub);
-		background: var(--bg-soft);
-		white-space: nowrap;
-	}
 
 	.avatar {
 		border-radius: 50%;
@@ -436,10 +436,6 @@ const jsonLd = {
 			font-size: 28px;
 		}
 
-		/* 모바일: 작업 시기 배지는 이름·날짜 아래 줄로 */
-		.work-period {
-			margin-left: 48px;
-		}
 
 		.author-card {
 			flex-wrap: wrap;
@@ -451,6 +447,120 @@ const jsonLd = {
 
 		.post-nav-item.is-next {
 			grid-column: 1;
+		}
+	}
+	/* 이미지 크게 보기 */
+	.lightbox {
+		width: 100vw;
+		height: 100dvh;
+		max-width: none;
+		max-height: none;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		background: transparent;
+	}
+
+	.lightbox::backdrop {
+		background: rgba(17, 20, 24, 0.9);
+	}
+
+	.lightbox-figure {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 14px;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 56px 72px;
+		box-sizing: border-box;
+	}
+
+	.lightbox-img {
+		max-width: 100%;
+		max-height: calc(100dvh - 160px);
+		object-fit: contain;
+		border-radius: var(--radius-sm);
+		cursor: zoom-out;
+	}
+
+	.lightbox-caption {
+		max-width: 720px;
+		font-size: 15px;
+		line-height: 1.6;
+		text-align: center;
+		color: #d1d6db;
+	}
+
+	.lightbox-caption:empty {
+		display: none;
+	}
+
+	.lightbox-count {
+		position: fixed;
+		top: 20px;
+		left: 24px;
+		font-size: 14px;
+		color: #b0b8c1;
+	}
+
+	.lightbox-btn {
+		position: fixed;
+		display: grid;
+		place-items: center;
+		width: 44px;
+		height: 44px;
+		padding: 0;
+		border: 0;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.12);
+		color: #fff;
+		font-size: 24px;
+		line-height: 1;
+		cursor: pointer;
+	}
+
+	.lightbox-btn:hover {
+		background: rgba(255, 255, 255, 0.24);
+	}
+
+	.lightbox-close {
+		top: 12px;
+		right: 16px;
+		font-size: 18px;
+	}
+
+	.lightbox-prev,
+	.lightbox-next {
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: 30px;
+	}
+
+	.lightbox-prev {
+		left: 16px;
+	}
+
+	.lightbox-next {
+		right: 16px;
+	}
+
+	.lightbox-btn[hidden] {
+		display: none;
+	}
+
+	@media (max-width: 640px) {
+		.lightbox-figure {
+			padding: 56px 12px 72px;
+		}
+
+		.lightbox-prev,
+		.lightbox-next {
+			top: auto;
+			bottom: 16px;
+			transform: none;
 		}
 	}
 </style>
@@ -497,5 +607,62 @@ const jsonLd = {
 			}, 1500);
 		});
 		wrapper.appendChild(button);
+	}
+
+	// 본문 이미지를 누르면 크게 보기 (링크로 감싼 이미지는 제외)
+	const lightbox = document.querySelector<HTMLDialogElement>('.lightbox');
+	const images = [...document.querySelectorAll<HTMLImageElement>('.prose img')].filter((img) => !img.closest('a'));
+	if (lightbox && images.length > 0) {
+		const big = lightbox.querySelector<HTMLImageElement>('.lightbox-img')!;
+		const caption = lightbox.querySelector<HTMLElement>('.lightbox-caption')!;
+		const count = lightbox.querySelector<HTMLElement>('.lightbox-count')!;
+		const prev = lightbox.querySelector<HTMLButtonElement>('.lightbox-prev')!;
+		const next = lightbox.querySelector<HTMLButtonElement>('.lightbox-next')!;
+		let current = 0;
+
+		// 캡션: 같은 문단의 <em>, 또는 바로 다음 문단의 <em> 한 줄
+		const captionOf = (img: HTMLImageElement) => {
+			const p = img.closest('p');
+			const inline = p?.querySelector(':scope > em:last-child');
+			if (inline) return inline.textContent ?? '';
+			const after = p?.nextElementSibling;
+			const em = after?.matches('p') && after.children.length === 1 ? after.querySelector(':scope > em') : null;
+			return em?.textContent ?? '';
+		};
+
+		const show = (index: number) => {
+			current = (index + images.length) % images.length;
+			const img = images[current];
+			big.src = img.currentSrc || img.src;
+			big.alt = img.alt;
+			caption.textContent = captionOf(img);
+			count.textContent = images.length > 1 ? `${current + 1} / ${images.length}` : '';
+		};
+
+		const multiple = images.length > 1;
+		prev.hidden = !multiple;
+		next.hidden = !multiple;
+
+		images.forEach((img, index) => {
+			img.addEventListener('click', () => {
+				show(index);
+				lightbox.showModal();
+			});
+		});
+
+		prev.addEventListener('click', () => show(current - 1));
+		next.addEventListener('click', () => show(current + 1));
+		lightbox.querySelector('.lightbox-close')!.addEventListener('click', () => lightbox.close());
+		big.addEventListener('click', () => lightbox.close());
+		// 이미지 바깥(어두운 배경)을 누르면 닫기
+		lightbox.addEventListener('click', (event) => {
+			if (event.target === lightbox || event.target === lightbox.querySelector('.lightbox-figure')) lightbox.close();
+		});
+		lightbox.addEventListener('keydown', (event) => {
+			if (!multiple) return;
+			if (event.key === 'ArrowLeft') show(current - 1);
+			if (event.key === 'ArrowRight') show(current + 1);
+		});
+		lightbox.addEventListener('close', () => big.removeAttribute('src'));
 	}
 </script>

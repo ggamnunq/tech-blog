@@ -1,14 +1,14 @@
 ---
 import { Image } from 'astro:assets';
 import { categoryLabel } from '../consts';
-import { formatDate, isoDate, type Post, readingMinutes, withBase } from '../lib/posts';
+import { formatDate, isoDate, type Post, withBase } from '../lib/posts';
 
 interface Props {
 	post: Post;
 }
 
 const { post } = Astro.props;
-const { title, description, pubDate, workPeriod, categories, thumbnail, draft } = post.data;
+const { title, description, pubDate, categories, thumbnail, draft } = post.data;
 ---
 
 <article class="post-card">
@@ -22,16 +22,6 @@ const { title, description, pubDate, workPeriod, categories, thumbnail, draft } 
 			<p class="post-card-desc">{description}</p>
 			<div class="post-card-meta">
 				<time datetime={isoDate(pubDate)}>{formatDate(pubDate)}</time>
-				<span class="dot" aria-hidden="true"></span>
-				<span>{readingMinutes(post.body)}분 읽기</span>
-				{
-					workPeriod && (
-						<>
-							<span class="dot" aria-hidden="true" />
-							<span>작업 {workPeriod}</span>
-						</>
-					)
-				}
 			</div>
 		</div>
 		{
