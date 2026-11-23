@@ -1,8 +1,8 @@
 // 블로그 전역 설정 — 이름·소개·링크는 여기서만 바꾸면 전체에 반영됨
 export const SITE = {
 	title: 'ggamnunq.log',
-	heroTitle: '배운 것을 기록하고\n부딪힌 문제를 나눕니다',
-	description: '백엔드 개발을 공부하며 배운 것, 해결한 문제, 프로젝트와 활동 이야기를 기록합니다',
+	heroTitle: '준용씨의 끄적끄적',
+	description: '프로젝트·공부 과정에서 기록하고싶은, 혹은 공유하고 싶은 내용들을 정리하여 업로드합니다.',
 	author: 'junyong',
 	github: 'https://github.com/ggamnunq',
 	avatar: 'avatar.jpg', // public/avatar.jpg — 외부(github.com) 요청 없이 직접 제공
