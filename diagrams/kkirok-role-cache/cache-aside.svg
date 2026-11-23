@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="430" viewBox="0 0 960 430" font-family="'Pretendard Variable', Pretendard, sans-serif">
+<defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker></defs>
+<rect width="960" height="430" fill="#f2f4f6"/>
+<!-- lanes -->
+<rect x="20" y="20" width="920" height="100" rx="18" fill="#fff"/>
+<rect x="20" y="136" width="920" height="110" rx="18" fill="#fff"/>
+<rect x="20" y="262" width="920" height="92" rx="18" fill="#fff"/>
+<image href="icon:lucide/smartphone#4E5968" x="40" y="56" width="26" height="26"/>
+<text x="74" y="76" font-size="19" font-weight="700" fill="#191f28">요청</text>
+<image href="icon:simple/redis#FF4438" x="40" y="160" width="26" height="26"/>
+<text x="74" y="180" font-size="19" font-weight="700" fill="#191f28">Redis</text>
+<text x="40" y="210" font-size="17" font-weight="500" fill="#8b95a1">auth:role:{id}</text>
+<image href="icon:simple/postgresql#4169E1" x="40" y="294" width="26" height="26"/>
+<text x="74" y="314" font-size="19" font-weight="700" fill="#191f28">DB</text>
+<!-- connectors: misses go down to DB, hits stop at Redis -->
+<g stroke-width="2.5">
+<line x1="240" y1="102" x2="240" y2="176" stroke="#ef5350"/>
+<line x1="240" y1="214" x2="240" y2="290" stroke="#ef5350"/>
+<line x1="560" y1="102" x2="560" y2="176" stroke="#ef5350"/>
+<line x1="560" y1="214" x2="560" y2="290" stroke="#ef5350"/>
+<line x1="870" y1="102" x2="870" y2="176" stroke="#ef5350"/>
+<line x1="870" y1="214" x2="870" y2="290" stroke="#ef5350"/>
+<line x1="315" y1="102" x2="315" y2="176" stroke="#2f6feb"/>
+<line x1="385" y1="102" x2="385" y2="176" stroke="#2f6feb"/>
+<line x1="635" y1="102" x2="635" y2="176" stroke="#2f6feb"/>
+<line x1="705" y1="102" x2="705" y2="176" stroke="#2f6feb"/>
+</g>
+<!-- requests -->
+<g font-size="17" font-weight="700" text-anchor="middle">
+<text x="240" y="60" fill="#c92a2a">miss</text><circle cx="240" cy="90" r="11" fill="#ef5350"/>
+<text x="315" y="60" fill="#1f56c7">hit</text><circle cx="315" cy="90" r="11" fill="#2f6feb"/>
+<text x="385" y="60" fill="#1f56c7">hit</text><circle cx="385" cy="90" r="11" fill="#2f6feb"/>
+<text x="560" y="60" fill="#c92a2a">miss</text><circle cx="560" cy="90" r="11" fill="#ef5350"/>
+<text x="635" y="60" fill="#1f56c7">hit</text><circle cx="635" cy="90" r="11" fill="#2f6feb"/>
+<text x="705" y="60" fill="#1f56c7">hit</text><circle cx="705" cy="90" r="11" fill="#2f6feb"/>
+<text x="870" y="60" fill="#c92a2a">miss</text><circle cx="870" cy="90" r="11" fill="#ef5350"/>
+</g>
+<rect x="410" y="54" width="110" height="40" rx="12" fill="#f2f4f6"/>
+<text x="465" y="80" font-size="17" font-weight="700" fill="#4e5968" text-anchor="middle">온보딩 완료</text>
+<path d="M465 94 L465 168" fill="none" stroke="#b0b8c1" stroke-width="2.5" marker-end="url(#ag)"/>
+<!-- key lifetimes -->
+<rect x="240" y="176" width="225" height="38" rx="10" fill="#ebf2ff"/>
+<text x="352" y="201" font-size="17" font-weight="700" fill="#1f56c7" text-anchor="middle">PENDING</text>
+<rect x="461" y="170" width="6" height="50" rx="3" fill="#ef5350"/>
+<text x="465" y="240" font-size="17" font-weight="700" fill="#c92a2a" text-anchor="middle">키 삭제</text>
+<rect x="560" y="176" width="230" height="38" rx="10" fill="#ebf2ff"/>
+<text x="675" y="201" font-size="17" font-weight="700" fill="#1f56c7" text-anchor="middle">USER</text>
+<line x1="790" y1="168" x2="790" y2="222" stroke="#8b95a1" stroke-width="2.5" stroke-dasharray="5 4"/>
+<text x="790" y="240" font-size="17" font-weight="700" fill="#4e5968" text-anchor="middle">TTL 만료</text>
+<rect x="870" y="176" width="60" height="38" rx="10" fill="#ebf2ff"/>
+<text x="250" y="240" font-size="17" font-weight="600" fill="#4e5968">DB에서 읽어 SET</text>
+<text x="570" y="240" font-size="17" font-weight="600" fill="#4e5968">SET</text>
+<!-- DB -->
+<rect x="200" y="290" width="80" height="40" rx="10" fill="#fdeeee"/>
+<text x="240" y="316" font-size="17" font-weight="700" fill="#c92a2a" text-anchor="middle">SELECT</text>
+<rect x="520" y="290" width="80" height="40" rx="10" fill="#fdeeee"/>
+<text x="560" y="316" font-size="17" font-weight="700" fill="#c92a2a" text-anchor="middle">SELECT</text>
+<rect x="830" y="290" width="80" height="40" rx="10" fill="#fdeeee"/>
+<text x="870" y="316" font-size="17" font-weight="700" fill="#c92a2a" text-anchor="middle">SELECT</text>
+<text x="400" y="316" font-size="17" font-weight="500" fill="#b0b8c1" text-anchor="middle">조회 없음</text>
+<text x="715" y="316" font-size="17" font-weight="500" fill="#b0b8c1" text-anchor="middle">조회 없음</text>
+<!-- time axis -->
+<path d="M200 386 L926 386" fill="none" stroke="#b0b8c1" stroke-width="2.5" marker-end="url(#ag)"/>
+<text x="200" y="414" font-size="17" font-weight="600" fill="#8b95a1">같은 회원의 요청, 시간 순서</text>
+</svg>

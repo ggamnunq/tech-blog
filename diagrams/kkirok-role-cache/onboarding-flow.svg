@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="580" viewBox="0 0 960 580" font-family="'Pretendard Variable', Pretendard, sans-serif">
+<defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ef5350"/></marker></defs>
+<rect width="960" height="580" fill="#f2f4f6"/>
+<!-- heads -->
+<rect x="175" y="24" width="170" height="60" rx="16" fill="#fff"/>
+<image href="icon:lucide/smartphone#4E5968" x="222" y="40" width="28" height="28"/>
+<text x="258" y="62" font-size="20" font-weight="700" fill="#191f28">앱</text>
+<rect x="475" y="24" width="170" height="60" rx="16" fill="#fff"/>
+<image href="icon:simple/springboot#6DB33F" x="513" y="40" width="28" height="28"/>
+<text x="549" y="62" font-size="20" font-weight="700" fill="#191f28">서버</text>
+<rect x="765" y="24" width="170" height="60" rx="16" fill="#fff"/>
+<image href="icon:simple/postgresql#4169E1" x="810" y="40" width="28" height="28"/>
+<text x="846" y="62" font-size="20" font-weight="700" fill="#191f28">DB</text>
+<line x1="260" y1="84" x2="260" y2="478" stroke="#d1d6db" stroke-width="3"/>
+<line x1="560" y1="84" x2="560" y2="478" stroke="#d1d6db" stroke-width="3"/>
+<line x1="850" y1="84" x2="850" y2="478" stroke="#d1d6db" stroke-width="3"/>
+<!-- step labels -->
+<text x="28" y="172" font-size="18" font-weight="700" fill="#191f28">① 가입·로그인</text>
+<text x="28" y="282" font-size="18" font-weight="700" fill="#191f28">② 온보딩 완료</text>
+<text x="28" y="412" font-size="18" font-weight="700" fill="#191f28">③ 서비스 이용</text>
+<line x1="28" y1="216" x2="932" y2="216" stroke="#d1d6db" stroke-width="2" stroke-dasharray="6 6"/>
+<line x1="28" y1="330" x2="932" y2="330" stroke="#d1d6db" stroke-width="2" stroke-dasharray="6 6"/>
+<!-- 1: token issue -->
+<rect x="318" y="114" width="184" height="40" rx="12" fill="#fff"/>
+<image href="icon:lucide/key-round#4E5968" x="332" y="122" width="24" height="24"/>
+<text x="364" y="141" font-size="17" font-weight="700" fill="#4e5968">role: PENDING</text>
+<path d="M552 172 L268 172" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+<text x="410" y="198" font-size="17" font-weight="600" fill="#8b95a1" text-anchor="middle">토큰 발급</text>
+<rect x="790" y="150" width="120" height="40" rx="12" fill="#fff"/>
+<text x="850" y="177" font-size="17" font-weight="700" fill="#4e5968" text-anchor="middle">PENDING</text>
+<!-- 2: onboarding -->
+<text x="410" y="252" font-size="17" font-weight="600" fill="#4e5968" text-anchor="middle">온보딩 완료</text>
+<path d="M268 264 L552 264" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+<text x="700" y="252" font-size="17" font-weight="600" fill="#4e5968" text-anchor="middle">role을 USER로</text>
+<path d="M568 264 L842 264" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+<rect x="790" y="278" width="120" height="40" rx="12" fill="#ebf2ff"/>
+<text x="850" y="305" font-size="17" font-weight="700" fill="#1f56c7" text-anchor="middle">USER</text>
+<!-- 3: service -->
+<rect x="318" y="346" width="184" height="40" rx="12" fill="#fdeeee"/>
+<image href="icon:lucide/key-round#C92A2A" x="332" y="354" width="24" height="24"/>
+<text x="364" y="373" font-size="17" font-weight="700" fill="#c92a2a">role: PENDING</text>
+<path d="M268 402 L552 402" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+<text x="410" y="426" font-size="17" font-weight="600" fill="#8b95a1" text-anchor="middle">식단 기록 요청 + 토큰</text>
+<text x="410" y="452" font-size="17" font-weight="700" fill="#c92a2a" text-anchor="middle">403 권한 없음</text>
+<path d="M552 464 L268 464" fill="none" stroke="#ef5350" stroke-width="3" marker-end="url(#ar)"/>
+<text x="700" y="422" font-size="17" font-weight="600" fill="#8b95a1" text-anchor="middle">토큰의 role로 판단</text>
+<!-- note -->
+<rect x="28" y="500" width="904" height="56" rx="14" fill="#fdeeee"/>
+<text x="480" y="535" font-size="18" font-weight="600" fill="#c92a2a" text-anchor="middle">DB는 이미 USER인데 토큰은 PENDING → 다시 로그인해 새 토큰을 받아야 이용 가능</text>
+</svg>

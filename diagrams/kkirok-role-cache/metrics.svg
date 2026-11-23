@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" font-family="'Pretendard Variable', Pretendard, sans-serif">
+<defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ef5350"/></marker></defs>
+<rect width="960" height="560" fill="#f2f4f6"/>
+<rect x="20" y="20" width="920" height="170" rx="20" fill="#fff"/>
+<text x="44" y="58" font-size="19" font-weight="700" fill="#191f28" text-anchor="start">MeterRegistry에 쌓이는 지표</text>
+<rect x="44" y="78" width="151.60000000000002" height="38" rx="10" fill="#ebf2ff"/>
+<text x="58" y="104" font-size="17" font-weight="700" fill="#1f56c7" text-anchor="start" font-family="'SF Mono', Menlo, Consolas, monospace">cache.lookup</text>
+<rect x="207.60000000000002" y="78" width="234.0" height="38" rx="10" fill="#ebf2ff"/>
+<text x="221.60000000000002" y="104" font-size="17" font-weight="700" fill="#1f56c7" text-anchor="start" font-family="'SF Mono', Menlo, Consolas, monospace">http.server.requests</text>
+<rect x="453.6" y="78" width="378.20000000000005" height="38" rx="10" fill="#ebf2ff"/>
+<text x="467.6" y="104" font-size="17" font-weight="700" fill="#1f56c7" text-anchor="start" font-family="'SF Mono', Menlo, Consolas, monospace">spring.data.repository.invocations</text>
+<rect x="44" y="128" width="182.5" height="38" rx="10" fill="#f2f4f6"/>
+<text x="58" y="154" font-size="17" font-weight="500" fill="#b0b8c1" text-anchor="start" font-family="'SF Mono', Menlo, Consolas, monospace">jvm.memory.used</text>
+<rect x="238.5" y="128" width="306.1" height="38" rx="10" fill="#f2f4f6"/>
+<text x="252.5" y="154" font-size="17" font-weight="500" fill="#b0b8c1" text-anchor="start" font-family="'SF Mono', Menlo, Consolas, monospace">hikaricp.connections.active</text>
+<rect x="556.6" y="128" width="337.0" height="38" rx="10" fill="#f2f4f6"/>
+<text x="570.6" y="154" font-size="17" font-weight="500" fill="#b0b8c1" text-anchor="start" font-family="'SF Mono', Menlo, Consolas, monospace">tomcat.sessions.active.current</text>
+
+<path d="M480 190 L480 236" fill="none" stroke="#2f6feb" stroke-width="3" marker-end="url(#ag)"/>
+<rect x="250" y="244" width="460" height="48" rx="12" fill="#2f6feb"/>
+<text x="480" y="275" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">MeterFilter.denyUnless · MetricFilters에 켠 3개만</text>
+<path d="M710 268 L800 268" fill="none" stroke="#b0b8c1" stroke-width="3" marker-end="url(#ag)"/>
+<text x="812" y="275" font-size="17" font-weight="600" fill="#8b95a1" text-anchor="start">나머지 버림</text>
+<path d="M480 292 L480 330" fill="none" stroke="#2f6feb" stroke-width="3" marker-end="url(#ag)"/>
+<text x="496" y="318" font-size="17" font-weight="600" fill="#4e5968" text-anchor="start">5분마다 집계해 로그로 → 매시 R2 업로드</text>
+<rect x="20" y="340" width="920" height="200" rx="20" fill="#fff"/>
+<image href="icon:simple/cloudflare#F38020" x="44" y="358" width="26" height="26"/>
+<text x="80" y="378" font-size="17" font-weight="600" fill="#4e5968" text-anchor="start">logs/dev/2026-08-17/kkirok-server-2026-08-17-05-1.log.gz</text>
+<line x1="44" y1="398" x2="916" y2="398" stroke="#e5e8eb" stroke-width="2"/>
+<text x="44" y="432" font-size="17" font-family="'SF Mono', Menlo, Consolas, monospace"><tspan fill="#8b95a1">05:55:39 </tspan><tspan fill="#1f56c7" font-weight="700">cache.lookup</tspan><tspan fill="#191f28">{cache=role_cache,result=hit} throughput=5.093333/s</tspan></text>
+<text x="44" y="468" font-size="17" font-family="'SF Mono', Menlo, Consolas, monospace"><tspan fill="#8b95a1">05:55:39 </tspan><tspan fill="#1f56c7" font-weight="700">http.server.requests</tspan><tspan fill="#191f28">{…,uri=/v1/home} throughput=0.293333/s</tspan></text>
+<text x="44" y="504" font-size="17" font-family="'SF Mono', Menlo, Consolas, monospace"><tspan fill="#8b95a1">05:55:39 </tspan><tspan fill="#1f56c7" font-weight="700">spring.data.repository.invocations</tspan><tspan fill="#191f28">{method=findById,…}</tspan></text>
+</svg>

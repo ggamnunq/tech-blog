@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="330" viewBox="0 0 960 330" font-family="'Pretendard Variable', Pretendard, sans-serif">
+<defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ef5350"/></marker></defs>
+<rect width="960" height="330" fill="#f2f4f6"/>
+<rect x="20" y="20" width="920" height="290" rx="20" fill="#fff"/>
+<image href="icon:simple/redis#FF4438" x="44" y="38" width="26" height="26"/>
+<text x="80" y="59" font-size="19" font-weight="700" fill="#191f28" text-anchor="start">Redis에 저장되는 두 키</text>
+<rect x="36" y="84" width="888" height="44" rx="10" fill="#f2f4f6"/>
+<text x="52" y="113" font-size="17" font-weight="700" fill="#4e5968" text-anchor="start">키</text>
+<text x="368" y="113" font-size="17" font-weight="700" fill="#4e5968" text-anchor="start">값</text>
+<text x="498" y="113" font-size="17" font-weight="700" fill="#4e5968" text-anchor="start">읽는 곳</text>
+<text x="688" y="113" font-size="17" font-weight="700" fill="#4e5968" text-anchor="start">온보딩 완료</text>
+<text x="818" y="113" font-size="17" font-weight="700" fill="#4e5968" text-anchor="start">회원 탈퇴</text>
+<text x="52" y="166" font-size="17" font-weight="600" fill="#191f28" text-anchor="start" font-family="'SF Mono', Menlo, Consolas, monospace">auth:role:{memberId}</text>
+<rect x="368" y="144" width="90" height="34" rx="8" fill="#ebf2ff"/>
+<text x="380" y="167" font-size="17" font-weight="700" fill="#1f56c7" text-anchor="start" font-family="'SF Mono', Menlo, Consolas, monospace">"USER"</text>
+<text x="498" y="166" font-size="17" font-weight="500" fill="#4e5968" text-anchor="start">JWT 인증 필터</text>
+<rect x="688" y="144" width="64" height="34" rx="8" fill="#ef5350"/>
+<text x="720" y="167" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">삭제</text>
+<rect x="818" y="144" width="64" height="34" rx="8" fill="#ef5350"/>
+<text x="850" y="167" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">삭제</text>
+<line x1="36" y1="190" x2="924" y2="190" stroke="#e5e8eb" stroke-width="2"/>
+<text x="52" y="226" font-size="17" font-weight="600" fill="#191f28" text-anchor="start" font-family="'SF Mono', Menlo, Consolas, monospace">auth:active:{memberId}</text>
+<rect x="368" y="204" width="90" height="34" rx="8" fill="#ebf2ff"/>
+<text x="380" y="227" font-size="17" font-weight="700" fill="#1f56c7" text-anchor="start" font-family="'SF Mono', Menlo, Consolas, monospace">"true"</text>
+<text x="498" y="226" font-size="17" font-weight="500" fill="#4e5968" text-anchor="start">권한 인터셉터</text>
+<text x="720" y="227" font-size="17" font-weight="600" fill="#b0b8c1" text-anchor="middle">—</text>
+<rect x="818" y="204" width="64" height="34" rx="8" fill="#ef5350"/>
+<text x="850" y="227" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">삭제</text>
+<text x="44" y="284" font-size="17" font-weight="500" fill="#8b95a1" text-anchor="start">role 값은 온보딩 전에는 "PENDING" · 탈퇴한 회원은 auth:active에 저장하지 않음</text>
+</svg>

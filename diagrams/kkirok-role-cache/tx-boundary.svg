@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" font-family="'Pretendard Variable', Pretendard, sans-serif">
+<defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b95a1"/></marker><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ef5350"/></marker></defs>
+<rect width="960" height="420" fill="#f2f4f6"/>
+<rect x="20" y="20" width="920" height="180" rx="20" fill="#fff"/>
+<text x="44" y="60" font-size="19" font-weight="700" fill="#191f28" text-anchor="start">수정 전</text>
+<rect x="170" y="78" width="160" height="44" rx="12" fill="#f2f4f6"/>
+<text x="250.0" y="106" font-size="17" font-weight="700" fill="#4e5968" text-anchor="middle">Redis 조회 · miss</text>
+<rect x="350" y="78" width="240" height="44" rx="12" fill="#f2f4f6"/>
+<text x="470.0" y="106" font-size="17" font-weight="700" fill="#191f28" text-anchor="middle">findMemberByMemberId()</text>
+<rect x="610" y="78" width="180" height="44" rx="12" fill="#fdeeee"/>
+<text x="700.0" y="106" font-size="17" font-weight="700" fill="#c92a2a" text-anchor="middle">member.getUser()</text>
+<text x="44" y="166" font-size="17" font-weight="700" fill="#8b95a1" text-anchor="start">세션</text>
+<rect x="350" y="144" width="240" height="34" rx="10" fill="#8b95a1"/>
+<text x="470" y="167" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">조회 동안만</text>
+<line x1="700" y1="128" x2="700" y2="180" stroke="#ef5350" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="712" y="167" font-size="17" font-weight="700" fill="#c92a2a" text-anchor="start">세션 없음</text>
+<rect x="810" y="78" width="110" height="44" rx="12" fill="#ef5350"/>
+<text x="865" y="106" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">예외</text>
+<path d="M790 100 L804 100" stroke="#b0b8c1" stroke-width="3"/>
+<rect x="20" y="220" width="920" height="180" rx="20" fill="#fff"/>
+<text x="44" y="260" font-size="19" font-weight="700" fill="#191f28" text-anchor="start">수정 후</text>
+<rect x="170" y="278" width="160" height="44" rx="12" fill="#f2f4f6"/>
+<text x="250.0" y="306" font-size="17" font-weight="700" fill="#4e5968" text-anchor="middle">Redis 조회 · miss</text>
+<rect x="350" y="278" width="240" height="44" rx="12" fill="#f2f4f6"/>
+<text x="470.0" y="306" font-size="17" font-weight="700" fill="#191f28" text-anchor="middle">findMemberByMemberId()</text>
+<rect x="610" y="278" width="180" height="44" rx="12" fill="#ebf2ff"/>
+<text x="700.0" y="306" font-size="17" font-weight="700" fill="#1f56c7" text-anchor="middle">member.getUser()</text>
+<text x="44" y="366" font-size="17" font-weight="700" fill="#8b95a1" text-anchor="start">세션</text>
+<rect x="170" y="344" width="620" height="34" rx="10" fill="#2f6feb"/>
+<text x="480" y="367" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">getRole() 트랜잭션 동안 세션 열림</text>
+<rect x="810" y="278" width="110" height="44" rx="12" fill="#2f6feb"/>
+<text x="865" y="306" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">role 반환</text>
+<path d="M790 300 L804 300" stroke="#b0b8c1" stroke-width="3"/>
+</svg>
